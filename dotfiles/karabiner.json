@@ -46,7 +46,7 @@
                   }
                 },
                 "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 200
+                  "basic.simultaneous_threshold_milliseconds": 500
                 },
                 "to": [
                   {
@@ -54,6 +54,97 @@
                       "name": "wFN",
                       "value": 1
                     }
+                  },
+                  {
+                    "key_code": "left_gui"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "w"
+                    },
+                    {
+                      "key_code": "left_shift"
+                    }
+                  ],
+                  "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                      {
+                        "set_variable": {
+                          "name": "wFN",
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 500
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "wFN",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "left_shift"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  },
+                  "simultaneous": [
+                    {
+                      "key_code": "w"
+                    },
+                    {
+                      "key_code": "left_alt"
+                    }
+                  ],
+                  "simultaneous_options": {
+                    "key_down_order": "strict",
+                    "key_up_order": "strict_inverse",
+                    "to_after_key_up": [
+                      {
+                        "set_variable": {
+                          "name": "wFN",
+                          "value": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 500
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "wFN",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "left_alt"
                   }
                 ],
                 "type": "basic"
