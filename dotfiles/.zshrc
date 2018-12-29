@@ -118,6 +118,7 @@ alias findhere="find . -iname"
 alias findregex="find . -iregex"
 alias gl="git log"
 alias gdh="git diff HEAD"
+alias rt="rails test"
 alias -g icloud="/Users/thomas/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias -g htdocs="/Applications/XAMPP/xamppfiles/htdocs/web-tech"
 ***REMOVED***
