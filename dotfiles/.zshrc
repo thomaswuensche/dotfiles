@@ -98,11 +98,13 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-alias zshconfig="atom ~/.zshrc"
-alias zshtheme="atom ~/.oh-my-zsh/themes/twue.zsh-theme"
+# ~/.zshrc
+alias zshconfig="atom ~/coding/thomas/dotfiles/.zshrc"
+# ~/.oh-my-zsh/themes/twue.zsh-theme
+alias zshtheme="atom ~/coding/thomas/dotfiles/twue.zsh-theme"
 alias ohmyzsh="atom ~/.oh-my-zsh"
-alias karabinerconfig="atom ~/.config/karabiner/karabiner.json"
+# ~/.config/karabiner/karabiner.json
+alias karabinerconfig="atom ~/coding/thomas/dotfiles/karabiner.json"
 alias mst="mysql.server status"
 alias msr="mysql.server start"
 alias msp="mysql.server stop"
@@ -115,6 +117,7 @@ alias pip="pip3"
 alias findhere="find . -iname"
 alias findregex="find . -iregex"
 alias gl="git log"
+alias gdh="git diff HEAD"
 alias -g icloud="/Users/thomas/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias -g htdocs="/Applications/XAMPP/xamppfiles/htdocs/web-tech"
 ***REMOVED***
