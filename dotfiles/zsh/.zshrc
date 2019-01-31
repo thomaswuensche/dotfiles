@@ -97,41 +97,74 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# ~/.zshrc
-alias zshconfig="atom ~/coding/thomas/dotfiles/.zshrc"
-# ~/.oh-my-zsh/themes/twue.zsh-theme
-alias zshtheme="atom ~/coding/thomas/dotfiles/twue.zsh-theme"
+
+# *** aliases ***
+
+# --- builtin ---
+alias mv="mv -i -v"
+alias cp="cp -i -v"
+alias deploy="command cp -v -R"
+alias lar="ls -lart"
+alias lq="tree -a -I '.git|*org.eclipse*'"
+alias findhere="find . -iname"
+alias findregex="find . -iregex"
+
+
+# --- dotfiles ---
 alias ohmyzsh="atom ~/.oh-my-zsh"
+# ~/.zshrc
+alias zshconfig="atom ~/coding/thomas/dotfiles/zsh/.zshrc"
+# ~/.oh-my-zsh/themes/twue.zsh-theme
+alias zshtheme="atom ~/coding/thomas/dotfiles/zsh/twue.zsh-theme"
 # ~/.config/karabiner/karabiner.json
-alias karabinerconfig="atom ~/coding/thomas/dotfiles/karabiner.json"
+alias karabinerconfig="atom ~/coding/thomas/dotfiles/karabiner/karabiner.json"
+
+
+# --- config savers ---
+alias apmlist="apm list -ib > ~/coding/thomas/dotfiles/atom/apmList.txt"
+alias brewlist="brew list --versions > ~/coding/thomas/dotfiles/cellar/brewList.txt"
+
+
+# --- config pushers ---
+alias push-zshconfig="cp ~/coding/thomas/dotfiles/zsh/.zshrc ~/.zshrc"
+alias push-zshtheme="cp ~/coding/thomas/dotfiles/zsh/twue.zsh-theme ~/.oh-my-zsh/themes/twue.zsh-theme"
+alias push-karabiner="cp ~/coding/thomas/dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json"
+
+
+# --- git ---
+alias gl="git log"
+alias gdh="git diff HEAD"
+
+
+# --- mysql ---
 alias mst="mysql.server status"
 alias msr="mysql.server start"
 alias msp="mysql.server stop"
-alias mv="mv -i -v"
-alias cp="cp -i -v"
-alias lar="ls -lart"
-alias lq="tree -a -I '.git|*org.eclipse*'"
+
+
+# --- python ---
 alias python="python3"
 alias pip="pip3"
-alias findhere="find . -iname"
-alias findregex="find . -iregex"
-alias gl="git log"
-alias gdh="git diff HEAD"
-alias rt="rails test"
-alias isbrew="la /usr/local/bin | grep"
-
-alias -g icloud="/Users/thomas/Library/Mobile\ Documents/com~apple~CloudDocs"
-alias -g htdocs="/Applications/XAMPP/xamppfiles/htdocs/web-tech"
-***REMOVED***
-alias fetchcred="cp ~/coding/htw-berlin/DbCred.java ~/coding/htw-berlin/db-tech/code/dbtech_service/src/main/java/de/htwberlin/utils && cp ~/coding/htw-berlin/DbCred.java ~/coding/htw-berlin/db-tech/code/dbtech_jdbc/src/main/java/de/htwberlin/utils"
-
-# ignores previous cp alias
-alias deploy="command cp -v -R"
-
-# python enviroments
 alias web-crawler-pyenv="source ~/coding/python-env/web-crawler-pyenv/bin/activate"
 alias spotipy3-pyenv="source ~/coding/python-env/spotipy3-pyenv/bin/activate"
+
+
+# --- rails ---
+alias rt="rails test"
+
+
+# --- global directories ---
+alias -g icloud="/Users/thomas/Library/Mobile\ Documents/com~apple~CloudDocs"
+alias -g htdocs="/Applications/XAMPP/xamppfiles/htdocs/gruppe16"
+
+
+# --- other ---
+alias isbrew="la /usr/local/bin | grep"
+alias fetchcred="cp ~/coding/htw-berlin/DbCred.java ~/coding/htw-berlin/db-tech/code/dbtech_service/src/main/java/de/htwberlin/utils && cp ~/coding/htw-berlin/DbCred.java ~/coding/htw-berlin/db-tech/code/dbtech_jdbc/src/main/java/de/htwberlin/utils"
+
+
+
+# *** misc shit ***
 
 eval "$(rbenv init -)"
 
@@ -140,7 +173,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export LSCOLORS="Fxfxcxdxbxegedabagacad"
-# export LESS="z15" -- causes colored output to be scrambled -> only append -z15?
 
 stty -ixon
 stty ixany
