@@ -1,0 +1,14 @@
+"*":
+  core:
+    packagesWithSnippetsDisabled: []
+    telemetryConsent: "limited"
+  editor:
+    scrollPastEnd: true
+  "exception-reporting":
+    userId: "767b8a66-2cad-4875-96d7-a6dbf03df59b"
+  "git-diff": {}
+  "line-jumper":
+    numberOfLines: 5
+  minimap: {}
+  welcome:
+    showOnStartup: false

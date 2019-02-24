@@ -1,0 +1,8 @@
+atom/blob-store
+atom/compile-cache
+atom/dev
+atom/storage
+atom/packages
+atom/.apm
+atom/.node-gyp
+atom/.npm
