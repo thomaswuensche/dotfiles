@@ -112,23 +112,14 @@ alias findregex="find . -iregex"
 
 # --- dotfiles ---
 alias ohmyzsh="atom ~/.oh-my-zsh"
-# ~/.zshrc
-alias zshconfig="atom ~/coding/dotfiles/zsh/.zshrc"
-# ~/.oh-my-zsh/themes/twue.zsh-theme
-alias zshtheme="atom ~/coding/dotfiles/zsh/twue.zsh-theme"
-# ~/.config/karabiner/karabiner.json
-alias karabinerconfig="atom ~/coding/dotfiles/karabiner/karabiner.json"
+alias zshconfig="atom ~/.zshrc"
+alias zshtheme="atom ~/.oh-my-zsh/themes/twue.zsh-theme"
+alias karabinerconfig="atom ~/.config/karabiner/karabiner.json"
 
 
 # --- config savers ---
 alias apmlist="apm list -ib > ~/coding/dotfiles/atom/apmList.txt"
 alias brewlist="brew list --versions > ~/coding/dotfiles/cellar/brewList.txt"
-
-
-# --- config pushers ---
-alias push-zshconfig="cp ~/coding/dotfiles/zsh/.zshrc ~/.zshrc"
-alias push-zshtheme="cp ~/coding/dotfiles/zsh/twue.zsh-theme ~/.oh-my-zsh/themes/twue.zsh-theme"
-alias push-karabiner="cp ~/coding/dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json"
 
 
 # --- git ---
