@@ -1,3 +1,1 @@
-# thomas
-
 dotfiles and stuff
