@@ -27,6 +27,9 @@
   'require_relative \'...\'':
     'prefix': 'reqr'
     'body': 'require_relative \'$0\''
+  'each do...end':
+    'prefix': 'each'
+    'body': 'each do |${1:param}|\n\t$2\nend'
 
 
 '.php.source':
