@@ -660,22 +660,6 @@
                     "to": {
                         "key_code": "left_control"
                     }
-                },
-                {
-                    "from": {
-                        "key_code": "delete_or_backspace"
-                    },
-                    "to": {
-                        "key_code": "right_shift"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "return_or_enter"
-                    },
-                    "to": {
-                        "key_code": "right_shift"
-                    }
                 }
             ],
             "virtual_hid_keyboard": {
