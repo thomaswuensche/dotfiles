@@ -539,17 +539,7 @@
                         "vendor_id": 1133
                     },
                     "ignore": false,
-                    "manipulate_caps_lock_led": false,
-                    "simple_modifications": [
-                        {
-                            "from": {
-                                "pointing_button": "button3"
-                            },
-                            "to": {
-                                "pointing_button": "button4"
-                            }
-                        }
-                    ]
+                    "manipulate_caps_lock_led": false
                 }
             ],
             "fn_function_keys": [
