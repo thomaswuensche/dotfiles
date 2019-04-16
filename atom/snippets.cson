@@ -31,7 +31,6 @@
     'prefix': 'each'
     'body': 'each do |${1:param}|\n\t$2\nend'
 
-
 '.php.source':
   'function …':
     'prefix': 'fun'
@@ -40,14 +39,17 @@
     'prefix': 'idea'
     'disabled': true
 
-
 '.html.php.text':
   'disable idea snippet':
     'prefix': 'idea'
     'disabled': true
 
-
 '.html.text':
   'Div':
     'prefix': 'div'
     'body': '<div ${1:class}="$2">\n\t$3\n</div>'
+
+'.sql.source':
+  'jinja ref':
+    'prefix': 'ref'
+    'body': '{{ ref(\'${1:model}\') }}'
