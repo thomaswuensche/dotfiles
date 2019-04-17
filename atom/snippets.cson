@@ -52,4 +52,4 @@
 '.sql.source':
   'jinja ref':
     'prefix': 'ref'
-    'body': '{{ ref(\'${1:model}\') }}'
+    'body': '{{ ref(\'${1:model}\') }}$2'

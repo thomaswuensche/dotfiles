@@ -14,3 +14,6 @@
   minimap: {}
   welcome:
     showOnStartup: false
+".source.sql":
+  editor:
+    tabLength: 4
