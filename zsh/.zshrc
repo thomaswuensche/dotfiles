@@ -125,6 +125,7 @@ alias brewlist="brew list --versions > ~/coding/dotfiles/cellar/brewList.txt"
 # --- git ---
 alias gl="git log"
 alias gdh="git diff HEAD"
+alias grh="git reset HEAD"
 
 
 # --- mysql ---

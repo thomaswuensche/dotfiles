@@ -30,6 +30,8 @@ function git_repo_status() {
     echo "%{%K{090}%F{096}%}$SEP%{%F{252}%} ↑ $(current_branch) %{$reset_color%F{090}%}$SEP"
   elif $(echo "$INDEX" | grep '^MM ' &> /dev/null); then
     echo "%{%K{090}%F{096}%}$SEP%{%F{252}%} ↑ $(current_branch) %{$reset_color%F{090}%}$SEP"
+  elif $(echo "$INDEX" | grep '^R  ' &> /dev/null); then
+    echo "%{%K{090}%F{096}%}$SEP%{%F{252}%} ↑ $(current_branch) %{$reset_color%F{090}%}$SEP"
   elif $(echo "$INDEX" | grep '^D  ' &> /dev/null); then
     echo "%{%K{090}%F{096}%}$SEP%{%F{252}%} ↑ $(current_branch) %{$reset_color%F{090}%}$SEP"
   else
