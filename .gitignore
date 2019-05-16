@@ -6,5 +6,6 @@ atom/packages
 atom/.apm
 atom/.node-gyp
 atom/.npm
+.atom-socket-secret-*
 
 karabiner/automatic_backups
