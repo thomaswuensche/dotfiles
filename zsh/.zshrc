@@ -126,6 +126,8 @@ alias brewlist="brew list --versions > ~/coding/dotfiles/cellar/brewList.txt"
 alias gl="git log"
 alias gdh="git diff HEAD"
 alias grh="git reset HEAD"
+alias grc="git checkout -- ."
+alias gfv="git fetch -v"
 
 
 # --- mysql ---
@@ -152,7 +154,7 @@ alias -g htdocs="/Applications/XAMPP/xamppfiles/htdocs/gruppe16"
 
 # --- other ---
 alias isbrew="la /usr/local/bin | grep"
-
+alias at="atom ."
 
 
 # *** misc shit ***
