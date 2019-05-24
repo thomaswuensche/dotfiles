@@ -30,6 +30,9 @@
   'each do...end':
     'prefix': 'each'
     'body': 'each do |${1:param}|\n\t$2\nend'
+  'env var':
+    'prefix': 'env'
+    'body': 'ENV[\'${1:ENV_VAR}\']$2'
 
 '.php.source':
   'function …':

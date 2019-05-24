@@ -157,6 +157,14 @@ alias isbrew="la /usr/local/bin | grep"
 alias at="atom ."
 
 
+# --- functions ---
+function setnv() {
+  set -a
+  source .env
+  set +a
+}
+
+
 # *** misc shit ***
 
 eval "$(rbenv init -)"
