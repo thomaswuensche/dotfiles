@@ -14,6 +14,10 @@
   minimap: {}
   welcome:
     showOnStartup: false
+".json.source":
+  editor:
+    tabLength: 4
+    showIndentGuide: true
 ".source.sql":
   editor:
     tabLength: 4
