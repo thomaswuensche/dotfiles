@@ -16,8 +16,8 @@
     showOnStartup: false
 ".json.source":
   editor:
-    tabLength: 4
     showIndentGuide: true
+    tabLength: 4
 ".source.sql":
   editor:
     tabLength: 4
