@@ -7,5 +7,6 @@ atom/.apm
 atom/.node-gyp
 atom/.npm
 .atom-socket-secret-*
+atom/split-diff
 
 karabiner/automatic_backups

@@ -2,6 +2,9 @@
   "autocomplete-plus":
     confirmCompletion: "tab always, enter when suggestion explicitly selected"
   core:
+    packagesWithKeymapsDisabled: [
+      "split-diff"
+    ]
     packagesWithSnippetsDisabled: []
     telemetryConsent: "limited"
   editor:
@@ -12,6 +15,8 @@
   "line-jumper":
     numberOfLines: 5
   minimap: {}
+  "split-diff":
+    hideDocks: true
   welcome:
     showOnStartup: false
 ".json.source":
