@@ -2,6 +2,10 @@
   "autocomplete-plus":
     confirmCompletion: "tab always, enter when suggestion explicitly selected"
   core:
+    disabledPackages: [
+      "Hydrogen"
+      "data-explorer"
+    ]
     packagesWithKeymapsDisabled: [
       "split-diff"
     ]

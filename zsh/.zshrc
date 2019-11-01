@@ -158,7 +158,7 @@ alias at="atom ."
 
 
 # --- functions ---
-function setnv() {
+function setenv() {
   set -a
   source .env
   set +a
