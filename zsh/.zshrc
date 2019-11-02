@@ -105,7 +105,7 @@ alias mv="mv -i -v"
 alias cp="cp -i -v"
 alias deploy="command cp -v -R"
 alias lar="ls -lart"
-alias lq="tree -a -I '.git|*org.eclipse*'"
+alias lq="tree -a -L 3 -I '.git|*org.eclipse*'"
 alias findhere="find . -iname"
 alias findregex="find . -iregex"
 
