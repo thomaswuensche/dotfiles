@@ -33,6 +33,9 @@
   'env var':
     'prefix': 'env'
     'body': 'ENV[\'${1:ENV_VAR}\']$2'
+  'File.write("...")':
+    'prefix': 'Filew'
+    'body': 'File.write("${1:path/to/file}", ${2:content})'
 
 '.php.source':
   'function …':

@@ -27,6 +27,9 @@
   editor:
     showIndentGuide: true
     tabLength: 4
+".python.source":
+  editor:
+    showIndentGuide: true
 ".source.sql":
   editor:
     tabLength: 4
