@@ -5,6 +5,7 @@
     disabledPackages: [
       "Hydrogen"
       "data-explorer"
+      "spell-check"
     ]
     packagesWithKeymapsDisabled: [
       "split-diff"
