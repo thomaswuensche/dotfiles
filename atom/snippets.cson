@@ -36,6 +36,9 @@
   'File.write("...")':
     'prefix': 'Filew'
     'body': 'File.write("${1:path/to/file}", ${2:content})'
+  'debug with pry':
+    'prefix': 'pry'
+    'body': 'require \'pry\'; binding.pry'
 
 '.php.source':
   'function …':
