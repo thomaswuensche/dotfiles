@@ -1,8 +1,10 @@
-Hydrogen@2.10.0
+Hydrogen@2.13.1
+atom-beautify@0.33.4
 atom-wrap-in-tag@0.6.0
-data-explorer@0.6.0
+data-explorer@0.7.0
 line-jumper@0.14.1
 logo-file-icons@1.13.0
 minimap@4.29.9
 split-diff@1.6.1
+structure-view@0.2.1
 
