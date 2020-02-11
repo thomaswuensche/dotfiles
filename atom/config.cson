@@ -1,4 +1,7 @@
 "*":
+  "atom-beautify":
+    json:
+      indent_size: 4
   "autocomplete-plus":
     confirmCompletion: "tab always, enter when suggestion explicitly selected"
   core:
