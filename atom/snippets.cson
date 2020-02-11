@@ -39,6 +39,9 @@
   'debug with pry':
     'prefix': 'pry'
     'body': '# --- breakpoint ---\nrequire \'pry\'; binding.pry\n# --- breakpoint ---'
+  'debug with pry (EOF)':
+    'prefix': 'prye'
+    'body': '# --- breakpoint ---\nrequire \'pry\'; binding.pry\n# --- breakpoint ---\nexit'
 
 '.php.source':
   'function …':
