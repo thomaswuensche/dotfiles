@@ -27,6 +27,9 @@
     hideDocks: true
   welcome:
     showOnStartup: false
+".apex.source":
+  editor:
+    tabLength: 4
 ".json.source":
   editor:
     showIndentGuide: true
