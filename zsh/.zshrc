@@ -148,6 +148,10 @@ alias spotipy3-pyenv="source ~/coding/python-env/spotipy3-pyenv/bin/activate"
 alias rt="rails test"
 
 
+# --- sfdx ---
+alias sfdxallmd="sfdx force:source:retrieve -x ~/coding/salesforce/package.xml --verbose"
+
+
 # --- global directories ---
 alias -g icloud="/Users/thomas/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias -g htdocs="/Applications/XAMPP/xamppfiles/htdocs/gruppe16"
