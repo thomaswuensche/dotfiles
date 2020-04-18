@@ -9,6 +9,7 @@ gdbm 1.18.1
 icu4c 64.2
 imagemagick 7.0.8-11
 jpeg 9c
+jq 1.6
 lame 3.100
 libpng 1.6.35
 libtiff 4.0.9_4
@@ -16,6 +17,7 @@ libtool 2.4.6_1
 mysql@5.7 5.7.23
 node 12.6.0
 nvm 0.33.11
+oniguruma 6.9.4
 openssl 1.0.2r
 pkg-config 0.29.2
 postgresql 11.2

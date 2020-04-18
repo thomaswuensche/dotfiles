@@ -7,7 +7,7 @@ GIT_DIRTY_K_COLOR="088"
 GIT_STAGE_K_COLOR="090"
 GIT_COUNT_K_COLOR="096"
 VENV_K_COLOR="196"
-SFDX_K_COLOR="055"
+SFDX_K_COLOR="054"
 
 
 PROMPT='
@@ -146,7 +146,9 @@ function git_dirty_status() {
 }
 
 function sfdx_username() {
-  echo -n " test-sfdx-username "
+  config="$(cat .sfdx/sfdx-config.json)"
+  defaultusername="$(echo ${config} | jq -r .defaultusername)"
+  echo -n " ${defaultusername} "
 }
 
 function in_git_repo() {
