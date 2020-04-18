@@ -6,68 +6,56 @@ GIT_CLEAN_K_COLOR="022"
 GIT_DIRTY_K_COLOR="088"
 GIT_STAGE_K_COLOR="090"
 GIT_COUNT_K_COLOR="096"
-VENV_K_COLOR="237"
-SFDX_K_COLOR="063"
+VENV_K_COLOR="196"
+SFDX_K_COLOR="055"
 
 
 PROMPT='
 %B%F{245}%m: %F{070}$(pwd)%f%b
 $(prompt_extra_info)%f%k$ '
-# %F{252}$(git_prompt_info)%f%k$ '
 
 
-# inserts separator and sets bacKground color until changed / reset
+# inserts separator and sets bac(K)ground color until changed / reset
 function insert_sep() {
-  # if unset set to bacKground color (basically equals a space w/ K_COLOR)
-  if [[ "$LAST_K_COLOR" == "" ]]; then
-    $LAST_K_COLOR=$1
+  local LAST_K_COLOR
+  # if unset set to bac(K)ground color (basically equals a space w/ K_COLOR)
+  if [[ "$1" == "none" ]]; then
+    LAST_K_COLOR=$2
+  else
+    LAST_K_COLOR=$1
   fi
-  echo "%F{$LAST_K_COLOR}%K{$1}$SEP%F{$EXTRA_INFO_F_COLOR}"
-  $LAST_K_COLOR=$1
+  echo -n "%F{$LAST_K_COLOR}%K{$2}$SEP%F{$EXTRA_INFO_F_COLOR}"
 }
 
 function prompt_extra_info() {
   HAS_EXTRA_INFO=false
-  INFO="%F{$EXTRA_INFO_F_COLOR}"
+  LAST_K_COLOR="none"
 
   if in_git_repo; then
-    INFO="${INFO}$(insert_sep $GIT_START_K_COLOR)git:$(git_branch_status)$(git_repo_status)"
+    insert_sep $LAST_K_COLOR $GIT_START_K_COLOR
+    echo -n "git:"
+    insert_sep $GIT_START_K_COLOR $GIT_COUNT_K_COLOR
+    git_branch_status
+    git_repo_status
     HAS_EXTRA_INFO=true
   fi
 
   if in_virtualenv; then
-    INFO="${INFO}%K{$VENV_K_COLOR} ${VIRTUAL_ENV##*/}"
+    insert_sep $LAST_K_COLOR $VENV_K_COLOR
+    echo -n " ${VIRTUAL_ENV##*/} "
+    LAST_K_COLOR=$VENV_K_COLOR
     HAS_EXTRA_INFO=true
   fi
 
   if in_sfdx_repo; then
-    INFO="${INFO}$K{$SFDX_K_COLOR} $(sfdx_username)"
+    insert_sep $LAST_K_COLOR $SFDX_K_COLOR
+    sfdx_username
+    LAST_K_COLOR=$SFDX_K_COLOR
     HAS_EXTRA_INFO=true
   fi
 
   if [[ "$HAS_EXTRA_INFO" = true ]]; then
-    echo "${INFO}%k%F{$LAST_K_COLOR}$SEP%f "
-  fi
-}
-
-function git_prompt_info() {
-  if [[ $(git symbolic-ref HEAD 2> /dev/null) ]]; then
-    echo "$(prompt_virtualenv_git)%{%K{239}%} git:$(git_branch_status)$(git_repo_status) "
-  else # not in git repo
-    echo "$(prompt_virtualenv)"
-  fi
-}
-
-function prompt_virtualenv() {
-  if [[ -n "$VIRTUAL_ENV" && "$VIRTUAL_ENV_DISABLE_PROMPT" != true ]]; then
-    echo "%{%K{237}%} ${VIRTUAL_ENV##*/} %{$reset_color%F{237}%}$SEP "
-  fi
-}
-
-function prompt_virtualenv_git() {
-  #in git AND venv
-  if [[ -n "$VIRTUAL_ENV" && "$VIRTUAL_ENV_DISABLE_PROMPT" != true ]]; then
-    echo "%{%K{237}%} ${VIRTUAL_ENV##*/} %{%K{239}%F{237}%}$SEP%{%F{252}%}"
+    echo -n "%k%F{$LAST_K_COLOR}$SEP%f "
   fi
 }
 
@@ -75,18 +63,18 @@ function git_branch_status() {
   local remote ahead behind
   remote=${$(command git rev-parse --verify ${hook_com[branch]}@{upstream} --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
   if [[ -n ${remote} ]]; then
-      ahead=$(command git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
-      behind=$(command git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
+    ahead=$(command git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
+    behind=$(command git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
 
-      if [[ $ahead -gt 0 ]] && [[ $behind -eq 0 ]]; then
-          git_commits_ahead
-      elif [[ $behind -gt 0 ]] && [[ $ahead -eq 0 ]]; then
-          git_commits_behind
-      else
-          echo "$(insert_sep $GIT_COUNT_K_COLOR)±0"
-      fi
+    if [[ $ahead -gt 0 ]] && [[ $behind -eq 0 ]]; then
+      git_commits_ahead
+    elif [[ $behind -gt 0 ]] && [[ $ahead -eq 0 ]]; then
+      git_commits_behind
+    else
+      echo -n "±0"
+    fi
   else
-      echo "$(insert_sep $GIT_COUNT_K_COLOR)!r"
+    echo -n "!r"
   fi
 }
 
@@ -94,7 +82,7 @@ function git_commits_ahead() {
   if command git rev-parse --git-dir &>/dev/null; then
     local commits="$(git rev-list --count @{upstream}..HEAD 2>/dev/null)"
     if [[ -n "$commits" && "$commits" != 0 ]]; then
-      echo "$(insert_sep $GIT_COUNT_K_COLOR)+$commits"
+      echo -n "+$commits"
     fi
   fi
 }
@@ -103,7 +91,7 @@ function git_commits_behind() {
   if command git rev-parse --git-dir &>/dev/null; then
     local commits="$(git rev-list --count HEAD..@{upstream} 2>/dev/null)"
     if [[ -n "$commits" && "$commits" != 0 ]]; then
-      echo "$(insert_sep $GIT_COUNT_K_COLOR)-$commits"
+      echo -n "-$commits"
     fi
   fi
 }
@@ -128,7 +116,9 @@ function git_repo_status() {
 }
 
 function git_staged_status() {
-  echo "$(insert_sep $GIT_STAGE_K_COLOR) ↑ $(current_branch) %{$reset_color%F{090}%}$SEP"
+  insert_sep $GIT_COUNT_K_COLOR $GIT_STAGE_K_COLOR
+  echo -n " ↑ $(current_branch) "
+  LAST_K_COLOR=$GIT_STAGE_K_COLOR
 }
 
 function git_dirty_status() {
@@ -145,14 +135,18 @@ function git_dirty_status() {
     STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
   fi
   if [[ -n $STATUS ]]; then
-    echo "$(insert_sep $GIT_DIRTY_K_COLOR) + $(current_branch) %{$reset_color%F{088}%}$SEP"
+    insert_sep $GIT_COUNT_K_COLOR $GIT_DIRTY_K_COLOR
+    echo -n " + $(current_branch) "
+    LAST_K_COLOR=$GIT_DIRTY_K_COLOR
   else
-    echo "$(insert_sep $GIT_CLEAN_K_COLOR) $(current_branch) %{$reset_color%F{022}%}$SEP"
+    insert_sep $GIT_COUNT_K_COLOR $GIT_CLEAN_K_COLOR
+    echo -n " $(current_branch) "
+    LAST_K_COLOR=$GIT_CLEAN_K_COLOR
   fi
 }
 
 function sfdx_username() {
-  echo "test-sfdx-username"
+  echo -n " test-sfdx-username "
 }
 
 function in_git_repo() {
