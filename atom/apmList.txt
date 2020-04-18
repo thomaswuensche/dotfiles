@@ -1,7 +1,8 @@
-Hydrogen@2.13.1
+Hydrogen@2.14.0
 atom-beautify@0.33.4
 atom-wrap-in-tag@0.6.0
 data-explorer@0.7.0
+language-salesforce@0.6.0
 line-jumper@0.14.1
 logo-file-icons@1.13.0
 minimap@4.29.9
