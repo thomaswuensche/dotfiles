@@ -174,9 +174,6 @@ function setenv() {
 
 eval "$(rbenv init -)"
 
-export NVM_DIR="$HOME/.nvm"
-  . "/usr/local/opt/nvm/nvm.sh"
-
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export LSCOLORS="Fxfxcxdxbxegedabagacad"
 
