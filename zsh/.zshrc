@@ -120,6 +120,7 @@ alias karabinerconfig="atom ~/.config/karabiner/karabiner.json"
 # --- config savers ---
 alias apmlist="apm list -ib > ~/coding/dotfiles/atom/apmList.txt"
 alias brewlist="brew list --versions > ~/coding/dotfiles/cellar/brewList.txt"
+alias codelist="code --list-extensions --show-versions > ~/coding/dotfiles/vscode/extensionList.txt"
 
 
 # --- git ---

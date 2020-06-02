@@ -1,0 +1,23 @@
+{
+    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorCustomizations": {
+        "editor.background": "#20232A"
+    },
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "salesforcedx-vscode-apex.java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home",
+    "editor.fontFamily": "Menlo, Consolas, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 14,
+    "editor.occurrencesHighlight": false,
+    "[Log]": {
+        "editor.fontSize": 13
+    },
+    "terminal.integrated.fontFamily": "Inconsolata for Powerline",
+    "terminal.integrated.fontSize": 16,
+    "lineJumper.linesToJump": 5,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.renderCharacters": false,
+    "atomKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true
+}

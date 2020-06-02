@@ -1,0 +1,11 @@
+alekseychaikovsky.line-jumper@0.1.0
+dbaeumer.vscode-eslint@2.1.5
+ms-vscode.atom-keybindings@3.0.8
+salesforce.salesforcedx-vscode@48.18.0
+salesforce.salesforcedx-vscode-apex@48.18.0
+salesforce.salesforcedx-vscode-apex-debugger@48.18.0
+salesforce.salesforcedx-vscode-apex-replay-debugger@48.18.0
+salesforce.salesforcedx-vscode-core@48.18.0
+salesforce.salesforcedx-vscode-lightning@48.18.0
+salesforce.salesforcedx-vscode-lwc@48.18.0
+salesforce.salesforcedx-vscode-visualforce@48.18.0

@@ -1,0 +1,11 @@
+{
+	"List SOQL Query": {
+		"prefix": "listq",
+		"body": "List<${1:Object}> ${2:listName} = [SELECT Id, ${3:fields} FROM ${1:Object}$4];$0"
+	},
+
+	"Query Single Object": {
+		"prefix": "quer",
+		"body": "${1:Object} ${2:varName} = [SELECT Id, ${3:fields} FROM ${1:Object} WHERE ${4:filter} = ${5:value}][0];$0"
+	}
+}
