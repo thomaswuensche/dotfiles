@@ -130,6 +130,7 @@ alias gdhs="git diff HEAD --staged"
 alias grh="git reset HEAD"
 alias grc="git checkout -- ."
 alias gfv="git fetch -v"
+alias gls="git log --stat"
 
 
 # --- mysql ---
