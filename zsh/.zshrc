@@ -152,6 +152,7 @@ alias rt="rails test"
 
 # --- sfdx ---
 alias sfdxallmd="sfdx force:source:retrieve -x ~/coding/salesforce/package.xml --verbose"
+alias sfdxcode="sfdx force:source:retrieve -x ~/coding/salesforce/apex.xml --verbose"
 
 
 # --- global directories ---

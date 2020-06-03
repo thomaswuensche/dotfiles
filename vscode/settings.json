@@ -19,5 +19,6 @@
     "editor.minimap.renderCharacters": false,
     "atomKeymap.promptV3Features": true,
     "editor.multiCursorModifier": "ctrlCmd",
-    "editor.formatOnPaste": true
+    "editor.formatOnPaste": true,
+    "gitlens.views.compare.files.layout": "tree"
 }
