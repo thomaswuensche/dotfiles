@@ -108,6 +108,9 @@ alias lar="ls -lart"
 alias lq="tree -a -L 3 -I '.git|*org.eclipse*'"
 alias findhere="find . -iname"
 alias findregex="find . -iregex"
+alias restart="exec $SHELL"
+alias type="type -a"
+alias which="which -a"
 
 
 # --- dotfiles ---
@@ -125,7 +128,7 @@ alias codelist="code --list-extensions --show-versions > ~/coding/dotfiles/vscod
 
 # --- git ---
 alias gl="git log"
-alias gdh="git diff HEAD"
+alias gdh="git diff HEAD --stat -p"
 alias gdhs="git diff HEAD --staged"
 alias grh="git reset HEAD"
 alias grc="git checkout -- ."
@@ -140,8 +143,6 @@ alias msp="mysql.server stop"
 
 
 # --- python ---
-alias python="python3"
-alias pip="pip3"
 alias web-crawler-pyenv="source ~/coding/python-env/web-crawler-pyenv/bin/activate"
 alias spotipy3-pyenv="source ~/coding/python-env/spotipy3-pyenv/bin/activate"
 
@@ -176,6 +177,8 @@ function setenv() {
 # *** misc shit ***
 
 eval "$(rbenv init -)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export LSCOLORS="Fxfxcxdxbxegedabagacad"
