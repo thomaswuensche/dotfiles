@@ -43,6 +43,11 @@
     'prefix': 'prye'
     'body': '# --- breakpoint ---\nrequire \'pry\'; binding.pry\n# --- breakpoint ---\nexit'
 
+'.python.source':
+  'env var':
+    'prefix': 'env'
+    'body': 'os.environ[\'${1:ENV_VAR}\']$2'
+
 '.php.source':
   'function …':
     'prefix': 'fun'
