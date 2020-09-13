@@ -2,14 +2,16 @@ autoconf 2.69
 gdbm 1.18.1_1 1.18.1
 heroku 7.40.0
 heroku-node 12.16.2
-icu4c 66.1
+icu4c 66.1 67.1
 jq 1.6
+krb5 1.18.2
 libzip 1.6.1
 mysql 8.0.19
-node 14.1.0
+node 14.10.1
 oniguruma 6.9.5-rev1
 openssl@1.1 1.1.1g
 pkg-config 0.29.2_3
+postgresql 12.4
 protobuf 3.11.4
 pyenv 1.2.20
 pyenv-virtualenv 1.1.5
