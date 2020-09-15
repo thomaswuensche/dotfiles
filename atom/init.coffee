@@ -10,4 +10,4 @@
 #   editor.onDidSave ->
 #     console.log "Saved! #{editor.getPath()}"
 
-atom.commands.dispatch(atom.views.getView(atom.workspace), 'structure-view:show')
+# atom.commands.dispatch(atom.views.getView(atom.workspace), 'structure-view:show')

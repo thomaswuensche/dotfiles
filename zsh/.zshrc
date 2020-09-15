@@ -60,10 +60,11 @@ alias psr="pg_ctl start"
 alias psp="pg_ctl stop"
 
 function psql-heroku() {
-  if [[ -z $HEROKU_PG_URL ]]; then
-    echo "HEROKU_PG_URL env var not set"
+  local DATABASE_URL="$(heroku config:get DATABASE_URL)"
+  if [[ $DATABASE_URL == postgres://* ]]; then
+    psql $DATABASE_URL
   else
-    psql $HEROKU_PG_URL
+    echo "failed to retrieve heroku DATABASE_URL config var"
   fi
 }
 
@@ -84,6 +85,10 @@ function setenv() {
   set -a
   source .env
   set +a
+
+  if [[ $HEROKU_PG_DB ]]; then
+    export DATABASE_URL="$(heroku config:get DATABASE_URL)"
+  fi
 }
 
 alias -g icloud="/Users/thomas/Library/Mobile\ Documents/com~apple~CloudDocs"
