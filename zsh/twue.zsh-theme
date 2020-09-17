@@ -70,6 +70,8 @@ function git_branch_status() {
       git_commits_ahead
     elif [[ $behind -gt 0 ]] && [[ $ahead -eq 0 ]]; then
       git_commits_behind
+    elif [[ $behind -gt 0 ]] && [[ $ahead -gt 0 ]]; then
+      echo -n "-<"
     else
       echo -n "±0"
     fi
