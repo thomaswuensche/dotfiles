@@ -47,6 +47,8 @@ alias grh="git reset HEAD"
 alias grc="git checkout -- ."
 alias gfv="git fetch -v"
 alias gls="git log --stat"
+alias glg="git log --all --decorate --oneline --graph"
+alias gs="git stash"
 
 
 # --- db ---
