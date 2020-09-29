@@ -13,17 +13,27 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 
-# --- builtin ---
+# --- shell ---
 alias mv="mv -i -v"
 alias cp="cp -i -v"
 alias deploy="command cp -v -R"
-alias lar="ls -lart"
+alias lar="ls -lArt"
+alias l="ls -1A"
 alias lq="tree -a -L 3 -I '.git|*org.eclipse*'"
-alias findhere="find . -iname"
 alias findregex="find . -iregex"
 alias restart="exec $SHELL"
 alias type="type -a"
 alias which="which -a"
+
+function show() {
+  local keyword="*$1*"
+  find . -maxdepth 1 -iname $keyword
+}
+
+function search() {
+  local keyword="*$1*"
+  find . -iname $keyword
+}
 
 
 # --- dotfiles ---

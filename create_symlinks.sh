@@ -1,5 +1,5 @@
 ln -s ~/coding/dotfiles/atom ~/.atom
-ln -s ~/coding/dotfiles/karabiner ~/.config/karabiner (only works when linking directoy)
+ln -s ~/coding/dotfiles/karabiner ~/.config/karabiner
 ln -s ~/coding/dotfiles/zsh/twue.zsh-theme ~/.oh-my-zsh/themes/twue.zsh-theme
 ln -s ~/coding/dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/coding/dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json

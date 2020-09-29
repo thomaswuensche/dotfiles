@@ -816,7 +816,7 @@
 			<key>Shortcut</key>
 			<string></string>
 			<key>Silence Bell</key>
-			<false/>
+			<true/>
 			<key>Space</key>
 			<integer>0</integer>
 			<key>Sync Title</key>
@@ -879,6 +879,10 @@
 	<string>B5368C60-6B13-4755-8E88-FA15EDA30EBB</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
 	<integer>68</integer>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>609937823.11655998</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -1647,7 +1651,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-09-27T14:44:30Z</date>
+	<date>2020-09-29T14:44:33Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
