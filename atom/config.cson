@@ -6,8 +6,6 @@
     confirmCompletion: "tab always, enter when suggestion explicitly selected"
   core:
     disabledPackages: [
-      "Hydrogen"
-      "data-explorer"
       "spell-check"
     ]
     packagesWithKeymapsDisabled: [
@@ -37,6 +35,10 @@
 ".python.source":
   editor:
     showIndentGuide: true
+".r.source":
+  editor:
+    showIndentGuide: true
+    tabLength: 4
 ".source.sql":
   editor:
     tabLength: 4
