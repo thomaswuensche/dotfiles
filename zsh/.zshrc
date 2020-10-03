@@ -113,6 +113,7 @@ eval "$(pyenv virtualenv-init -)"
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export LSCOLORS="Fxfxcxdxbxegedabagacad"
+export ARCHIVE_DIR="/Users/thomas/coding/archive"
 
 # Disable START/STOP output control.
 stty -ixon
