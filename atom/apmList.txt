@@ -7,3 +7,4 @@ logo-file-icons@1.13.0
 minimap@4.29.9
 split-diff@1.6.1
 structure-view@0.2.1
+tablr@1.8.3
