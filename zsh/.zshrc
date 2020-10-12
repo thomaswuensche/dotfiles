@@ -35,6 +35,11 @@ function search() {
   find . -iname $keyword
 }
 
+function search-rm() {
+  local keyword="*$1*"
+  find . -iname $keyword -delete
+}
+
 
 # --- dotfiles ---
 alias ohmyzsh="atom ~/.oh-my-zsh"
