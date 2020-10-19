@@ -57,7 +57,7 @@ alias codelist="code --list-extensions --show-versions > ~/coding/dotfiles/vscod
 # --- git ---
 alias gl="git log"
 alias gdh="git diff HEAD --stat -p"
-alias gdhs="git diff HEAD --staged"
+alias gdhs="git diff HEAD --staged --stat -p"
 alias grh="git reset HEAD"
 alias grst="git restore"
 alias grsts="git restore --staged"
