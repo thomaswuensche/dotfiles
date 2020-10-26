@@ -32,13 +32,15 @@
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#configuring-with-cson
 
 'atom-text-editor':
-  'cmd-shift-C': 'editor:toggle-line-comments'
-  'cmd-shift-X': 'editor:delete-line'
+  'cmd-shift-c': 'editor:toggle-line-comments'
+  'cmd-shift-x': 'editor:delete-line'
   'cmd-alt-up': 'editor:select-larger-syntax-node'
   'cmd-alt-down': 'editor:select-smaller-syntax-node'
   'alt-up': 'line-jumper:move-up'
   'alt-down': 'line-jumper:move-down'
-  'cmd-shift-I': 'editor:auto-indent'
+  'cmd-shift-i': 'editor:auto-indent'
+  # defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 70 '<dict><key>enabled</key><false/></dict>'
+  'cmd-ctrl-d': 'custom:duplicate-and-comment-line'
 
 'body':
   'ctrl-tab ^ctrl': 'unset!'

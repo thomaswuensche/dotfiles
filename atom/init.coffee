@@ -11,3 +11,13 @@
 #     console.log "Saved! #{editor.getPath()}"
 
 # atom.commands.dispatch(atom.views.getView(atom.workspace), 'structure-view:show')
+
+atom.commands.add 'atom-text-editor',
+  'custom:duplicate-and-comment-line': ->
+    editor = atom.workspace.getActiveTextEditor()
+    row = editor.getCursorBufferPosition().row
+    text = editor.lineTextForBufferRow(row)
+    editor.toggleLineCommentsInSelection()
+    editor.insertNewlineBelow()
+    editor.deleteToBeginningOfLine()
+    editor.insertText(text)

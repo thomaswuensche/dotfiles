@@ -17,11 +17,13 @@
     scrollPastEnd: true
   "exception-reporting":
     userId: "767b8a66-2cad-4875-96d7-a6dbf03df59b"
-  "git-diff": {}
   "line-jumper":
     numberOfLines: 5
-  minimap: {}
   "split-diff":
+    colors:
+      addedColor: "#3f6738"
+      overrideThemeColors: true
+      removedColor: "#934143"
     hideDocks: true
   welcome:
     showOnStartup: false
