@@ -24,10 +24,10 @@ alias findregex="find . -iregex"
 alias restart="exec $SHELL"
 alias type="type -a"
 alias which="which -a"
+alias lest="less +G"
 
 function show() {
-  local keyword="*$1*"
-  find . -maxdepth 1 -iname $keyword
+  ls -lAh | grep $1
 }
 
 function search() {
@@ -66,6 +66,7 @@ alias gfv="git fetch -v"
 alias gls="git log --stat"
 alias glg="git log --all --decorate --oneline --graph"
 alias gs="git stash"
+alias gro="git remote show origin"
 
 
 # --- db ---
@@ -120,6 +121,7 @@ eval "$(pyenv virtualenv-init -)"
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export LSCOLORS="Fxfxcxdxbxegedabagacad"
+export LOGS_DIR="/Users/thomas/coding/logs"
 export ARCHIVE_DIR="/Users/thomas/coding/archive"
 
 # Disable START/STOP output control.

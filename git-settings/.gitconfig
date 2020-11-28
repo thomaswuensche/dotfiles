@@ -3,5 +3,6 @@
 	email = 42999314+thomaswuensche@users.noreply.github.com
 [core]
 	editor = nano -w
+	autocrlf = input
 [pull]
 	rebase = false

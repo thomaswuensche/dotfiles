@@ -6,6 +6,8 @@ GIT_CLEAN_K_COLOR="022"
 GIT_DIRTY_K_COLOR="088"
 GIT_STAGE_K_COLOR="090"
 GIT_COUNT_K_COLOR="096"
+GIT_STASH_K_COLOR="184"
+GIT_STASH_F_COLOR="000"
 VENV_K_COLOR="196"
 SFDX_K_COLOR="054"
 
@@ -36,6 +38,7 @@ function prompt_extra_info() {
     echo -n "git:"
     insert_sep $GIT_START_K_COLOR $GIT_COUNT_K_COLOR
     git_branch_status
+    git_stash_status
     git_repo_status
     HAS_EXTRA_INFO=true
   fi
@@ -78,6 +81,7 @@ function git_branch_status() {
   else
     echo -n "!r"
   fi
+  LAST_K_COLOR=$GIT_COUNT_K_COLOR
 }
 
 function git_commits_ahead() {
@@ -95,6 +99,14 @@ function git_commits_behind() {
     if [[ -n "$commits" && "$commits" != 0 ]]; then
       echo -n "-$commits"
     fi
+  fi
+}
+
+function git_stash_status() {
+  if [[ -n "$(git stash list)" ]]; then
+    insert_sep $LAST_K_COLOR $GIT_STASH_K_COLOR
+    echo -n "%F{black}≡%F{$EXTRA_INFO_F_COLOR}"
+    LAST_K_COLOR=$GIT_STASH_K_COLOR
   fi
 }
 
@@ -118,7 +130,7 @@ function git_repo_status() {
 }
 
 function git_staged_status() {
-  insert_sep $GIT_COUNT_K_COLOR $GIT_STAGE_K_COLOR
+  insert_sep $LAST_K_COLOR $GIT_STAGE_K_COLOR
   echo -n " ↑ $(current_branch) "
   LAST_K_COLOR=$GIT_STAGE_K_COLOR
 }
@@ -137,11 +149,11 @@ function git_dirty_status() {
     STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
   fi
   if [[ -n $STATUS ]]; then
-    insert_sep $GIT_COUNT_K_COLOR $GIT_DIRTY_K_COLOR
+    insert_sep $LAST_K_COLOR $GIT_DIRTY_K_COLOR
     echo -n " + $(current_branch) "
     LAST_K_COLOR=$GIT_DIRTY_K_COLOR
   else
-    insert_sep $GIT_COUNT_K_COLOR $GIT_CLEAN_K_COLOR
+    insert_sep $LAST_K_COLOR $GIT_CLEAN_K_COLOR
     echo -n " $(current_branch) "
     LAST_K_COLOR=$GIT_CLEAN_K_COLOR
   fi
