@@ -111,6 +111,17 @@ function setenv() {
   fi
 }
 
+function init-repo() {
+  mkdir "$1"
+  cd "$1"
+  git init
+  touch .env
+  echo '.env' > .gitignore
+  git add .gitignore
+  git commit -m 'init repo'
+  atom .
+}
+
 alias -g icloud="/Users/thomas/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias isbrew="la /usr/local/bin | grep"
 alias at="atom ."
