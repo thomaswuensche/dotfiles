@@ -5,6 +5,7 @@ language-salesforce@0.6.0
 line-jumper@0.14.1
 logo-file-icons@1.13.0
 minimap@4.29.9
+remove-whitespace@0.2.1
 split-diff@1.6.1
 structure-view@0.2.1
 tablr@1.8.3
