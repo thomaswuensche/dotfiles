@@ -1,0 +1,2 @@
+--output '~/Downloads/youtube-dl/%(title)s.%(ext)s'
+--format 'best'

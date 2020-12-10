@@ -122,6 +122,10 @@ function init-repo() {
   atom .
 }
 
+function youtube-dl-mp3() {
+  youtube-dl --extract-audio --audio-format mp3 --embed-thumbnail $1
+}
+
 alias -g icloud="/Users/thomas/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias isbrew="la /usr/local/bin | grep"
 alias at="atom ."
