@@ -16,7 +16,6 @@ source $ZSH/oh-my-zsh.sh
 # --- shell ---
 alias mv="mv -i -v"
 alias cp="cp -i -v"
-alias deploy="command cp -v -R"
 alias lar="ls -lArt"
 alias l="ls -1A"
 alias lq="tree -a -L 3 -I '.git|*org.eclipse*'"
@@ -134,6 +133,8 @@ eval "$(pyenv virtualenv-init -)"
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export LSCOLORS="Fxfxcxdxbxegedabagacad"
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
 export LOGS_DIR="/Users/thomas/coding/logs"
 export ARCHIVE_DIR="/Users/thomas/coding/archive"
 
