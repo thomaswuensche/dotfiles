@@ -35,7 +35,7 @@
     'body': 'ENV[\'${1:ENV_VAR}\']$2'
   'File.write("...")':
     'prefix': 'Filew'
-    'body': 'File.write("${1:path/to/file}", ${2:content})'
+    'body': 'File.write(${1:"${2:path/to/file}"}, ${3:content})'
   'debug with pry':
     'prefix': 'pry'
     'body': '# --- breakpoint ---\nrequire \'pry\'; binding.pry\n# --- breakpoint ---'
