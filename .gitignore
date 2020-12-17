@@ -10,3 +10,5 @@ atom/.npm
 atom/split-diff
 
 karabiner/automatic_backups
+
+iterm2/*prefs.rb
