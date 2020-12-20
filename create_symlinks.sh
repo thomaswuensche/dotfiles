@@ -1,12 +1,24 @@
-ln -s ~/coding/dotfiles/atom ~/.atom
-ln -s ~/coding/dotfiles/karabiner ~/.config/karabiner
-ln -s ~/coding/dotfiles/zsh/twue.zsh-theme ~/.oh-my-zsh/themes/twue.zsh-theme
-ln -s ~/coding/dotfiles/zsh/.zshrc ~/.zshrc
-ln -s ~/coding/dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
-ln -s ~/coding/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-ln -s ~/coding/dotfiles/vscode/snippets ~/Library/Application\ Support/Code/User/snippets
-ln -s ~/coding/dotfiles/git-settings/.gitconfig ~/.gitconfig
-ln -s ~/coding/dotfiles/youtube-dl/config ~/.config/youtube-dl/config
+# files
+command ln -sfhv ~/coding/dotfiles/zsh/twue.zsh-theme ~/.oh-my-zsh/themes/twue.zsh-theme
+command ln -sfhv ~/coding/dotfiles/zsh/.zshrc ~/.zshrc
+command ln -sfhv ~/coding/dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+command ln -sfhv ~/coding/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+command ln -sfhv ~/coding/dotfiles/git-settings/.gitconfig ~/.gitconfig
+command ln -sfhv ~/coding/dotfiles/youtube-dl/config ~/.config/youtube-dl/config
 
 chmod +x ~/coding/dotfiles/scripts/format-name.rb
-ln -s ~/coding/dotfiles/scripts/format-name.rb /usr/local/bin/format-name
+command ln -sfhv ~/coding/dotfiles/scripts/format-name.rb /usr/local/bin/format-name
+
+
+# directories
+function create_dir_symlink() {
+  if [[ -d $2 && ! -h $2 ]]; then
+    echo 'deleted:'
+    rm -rfv $2
+  fi
+  command ln -sfhv $1 $2
+}
+
+create_dir_symlink ~/coding/dotfiles/atom ~/.atom
+create_dir_symlink ~/coding/dotfiles/karabiner ~/.config/karabiner
+create_dir_symlink ~/coding/dotfiles/vscode/snippets ~/Library/Application\ Support/Code/User/snippets
