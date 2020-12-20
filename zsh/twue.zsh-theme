@@ -6,6 +6,7 @@ GIT_CLEAN_K_COLOR="022"
 GIT_DIRTY_K_COLOR="088"
 GIT_STAGE_K_COLOR="090"
 GIT_COUNT_K_COLOR="096"
+GIT_HEROKU_K_COLOR="020"
 GIT_STASH_K_COLOR="184"
 GIT_STASH_F_COLOR="000"
 VENV_K_COLOR="196"
@@ -17,49 +18,48 @@ PROMPT='
 $(prompt_extra_info)%f%k$ '
 
 
-# inserts separator and sets bac(K)ground color until changed / reset
+# inserts separator and sets bac(K)ground color until changed
 function insert_sep() {
-  local LAST_K_COLOR
-  # if unset set to bac(K)ground color (basically equals a space w/ K_COLOR)
-  if [[ "$1" == "none" ]]; then
-    LAST_K_COLOR=$2
+  if [[ -n $LAST_K_COLOR ]]; then
+    echo -n "%F{$LAST_K_COLOR}%K{$1}$SEP%F{$EXTRA_INFO_F_COLOR}"
   else
-    LAST_K_COLOR=$1
+    echo -n "%K{$1} %F{$EXTRA_INFO_F_COLOR}"
   fi
-  echo -n "%F{$LAST_K_COLOR}%K{$2}$SEP%F{$EXTRA_INFO_F_COLOR}"
+  LAST_K_COLOR=$1
 }
 
 function prompt_extra_info() {
   HAS_EXTRA_INFO=false
-  LAST_K_COLOR="none"
 
   if in_git_repo; then
-    insert_sep $LAST_K_COLOR $GIT_START_K_COLOR
-    echo -n "git:"
-    insert_sep $GIT_START_K_COLOR $GIT_COUNT_K_COLOR
+    git_start
     git_branch_status
+    git_heroku_status
     git_stash_status
     git_repo_status
     HAS_EXTRA_INFO=true
   fi
 
   if in_virtualenv; then
-    insert_sep $LAST_K_COLOR $VENV_K_COLOR
+    insert_sep $VENV_K_COLOR
     echo -n " ${VIRTUAL_ENV##*/} "
-    LAST_K_COLOR=$VENV_K_COLOR
     HAS_EXTRA_INFO=true
   fi
 
   if in_sfdx_repo; then
-    insert_sep $LAST_K_COLOR $SFDX_K_COLOR
+    insert_sep $SFDX_K_COLOR
     sfdx_username
-    LAST_K_COLOR=$SFDX_K_COLOR
     HAS_EXTRA_INFO=true
   fi
 
-  if [[ "$HAS_EXTRA_INFO" = true ]]; then
+  if [[ $HAS_EXTRA_INFO = true ]]; then
     echo -n "%k%F{$LAST_K_COLOR}$SEP%f "
   fi
+}
+
+function git_start() {
+  insert_sep $GIT_START_K_COLOR
+  echo -n "git:"
 }
 
 function git_branch_status() {
@@ -69,19 +69,32 @@ function git_branch_status() {
     ahead=$(command git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
     behind=$(command git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
 
-    if [[ $ahead -gt 0 ]] && [[ $behind -eq 0 ]]; then
-      git_commits_ahead
-    elif [[ $behind -gt 0 ]] && [[ $ahead -eq 0 ]]; then
-      git_commits_behind
-    elif [[ $behind -gt 0 ]] && [[ $ahead -gt 0 ]]; then
-      echo -n "-<"
-    else
-      echo -n "±0"
+    if [[ $ahead -ne 0 || $behind -ne 0 ]]; then
+      insert_sep $GIT_COUNT_K_COLOR
+      if [[ $ahead -gt 0 && $behind -eq 0 ]]; then
+        git_commits_ahead
+      elif [[ $behind -gt 0 && $ahead -eq 0 ]]; then
+        git_commits_behind
+      else
+        echo -n "-<"
+      fi
     fi
   else
+    insert_sep $GIT_COUNT_K_COLOR
     echo -n "!r"
   fi
-  LAST_K_COLOR=$GIT_COUNT_K_COLOR
+}
+
+function git_heroku_status() {
+  local heroku_remote ahead
+  heroku_remote=$(git remote | grep heroku)
+  if [[ -n $heroku_remote ]]; then
+    ahead=$(git rev-list heroku/$(git_main_branch)..$(git_main_branch) 2> /dev/null | wc -l)
+    if [[ $ahead -gt 0 ]]; then
+      insert_sep $GIT_HEROKU_K_COLOR
+      echo -n '+h'
+    fi
+  fi
 }
 
 function git_commits_ahead() {
@@ -104,9 +117,8 @@ function git_commits_behind() {
 
 function git_stash_status() {
   if [[ -n "$(git stash list)" ]]; then
-    insert_sep $LAST_K_COLOR $GIT_STASH_K_COLOR
+    insert_sep $GIT_STASH_K_COLOR
     echo -n "%F{black}≡%F{$EXTRA_INFO_F_COLOR}"
-    LAST_K_COLOR=$GIT_STASH_K_COLOR
   fi
 }
 
@@ -130,9 +142,8 @@ function git_repo_status() {
 }
 
 function git_staged_status() {
-  insert_sep $LAST_K_COLOR $GIT_STAGE_K_COLOR
+  insert_sep $GIT_STAGE_K_COLOR
   echo -n " ↑ $(current_branch) "
-  LAST_K_COLOR=$GIT_STAGE_K_COLOR
 }
 
 function git_dirty_status() {
@@ -149,13 +160,11 @@ function git_dirty_status() {
     STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
   fi
   if [[ -n $STATUS ]]; then
-    insert_sep $LAST_K_COLOR $GIT_DIRTY_K_COLOR
+    insert_sep $GIT_DIRTY_K_COLOR
     echo -n " + $(current_branch) "
-    LAST_K_COLOR=$GIT_DIRTY_K_COLOR
   else
-    insert_sep $LAST_K_COLOR $GIT_CLEAN_K_COLOR
+    insert_sep $GIT_CLEAN_K_COLOR
     echo -n " $(current_branch) "
-    LAST_K_COLOR=$GIT_CLEAN_K_COLOR
   fi
 }
 
@@ -174,7 +183,7 @@ function in_git_repo() {
 }
 
 function in_virtualenv() {
-  if [[ -n "$VIRTUAL_ENV" && "$VIRTUAL_ENV_DISABLE_PROMPT" != true ]]; then
+  if [[ -n $VIRTUAL_ENV ]]; then
     return 0
   else
     return 1

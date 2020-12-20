@@ -118,7 +118,6 @@ function init-repo() {
   echo '.env' > .gitignore
   git add .gitignore
   git commit -m 'init repo'
-  atom .
 }
 
 
@@ -138,5 +137,5 @@ export LESS=' -R '
 export LOGS_DIR="/Users/thomas/coding/logs"
 export ARCHIVE_DIR="/Users/thomas/coding/archive"
 
-# Disable START/STOP output control.
+# Disable START/STOP output control
 stty -ixon
