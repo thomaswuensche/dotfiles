@@ -25,6 +25,17 @@ alias restart="exec $SHELL"
 alias type="type -a"
 alias which="which -a"
 alias lest="less +G"
+alias sortenv="sort -o .env .env"
+
+function setenv() {
+  set -a
+  source .env
+  set +a
+
+  if [[ $HEROKU_PG_DB ]]; then
+    export DATABASE_URL="$(heroku config:get DATABASE_URL)"
+  fi
+}
 
 function show() {
   ls -lAh | grep $1
@@ -38,6 +49,15 @@ function search() {
 function search-rm() {
   local keyword="*$1*"
   find . -iname $keyword -delete
+}
+
+function search-bin() {
+  echo '/usr/local/bin:'
+  ls -lAh /usr/local/bin | grep $1
+  echo '/usr/bin:'
+  ls -lAh /usr/bin | grep $1
+  echo '/bin:'
+  ls -lAh /bin | grep $1
 }
 
 
@@ -94,17 +114,9 @@ alias sfdxcode="sfdx force:source:retrieve -x ~/coding/salesforce/apex.xml --ver
 
 
 # --- misc ---
-function setenv() {
-  set -a
-  source .env
-  set +a
-
-  if [[ $HEROKU_PG_DB ]]; then
-    export DATABASE_URL="$(heroku config:get DATABASE_URL)"
-  fi
-}
-
-alias sortenv="sort -o .env .env"
+alias -g icloud="/Users/thomas/Library/Mobile\ Documents/com~apple~CloudDocs"
+alias at="atom ."
+alias youtube-dl-mp3="youtube-dl --extract-audio --audio-format mp3 --embed-thumbnail"
 
 function init-repo() {
   mkdir "$1"
@@ -116,16 +128,6 @@ function init-repo() {
   git commit -m 'init repo'
 }
 
-
-alias -g icloud="/Users/thomas/Library/Mobile\ Documents/com~apple~CloudDocs"
-alias isbrew="la /usr/local/bin | grep"
-alias at="atom ."
-alias youtube-dl-mp3="youtube-dl --extract-audio --audio-format mp3 --embed-thumbnail"
-
-eval "$(rbenv init -)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export LSCOLORS="Fxfxcxdxbxegedabagacad"
 export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
@@ -133,5 +135,12 @@ export LESS=' -R '
 export LOGS_DIR="/Users/thomas/coding/logs"
 export ARCHIVE_DIR="/Users/thomas/coding/archive"
 
-# Disable START/STOP output control
-stty -ixon
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+stty -ixon # disables START/STOP output control
+
+
+# --- keybindings ---
+bindkey '^j' backward-word
+bindkey '^l' forward-word
