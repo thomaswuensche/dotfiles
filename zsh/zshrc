@@ -41,14 +41,7 @@ function search-rm() {
 }
 
 
-# --- dotfiles ---
-alias ohmyzsh="atom ~/.oh-my-zsh"
-alias zshconfig="atom ~/.zshrc"
-alias zshtheme="atom ~/.oh-my-zsh/themes/twue.zsh-theme"
-alias karabinerconfig="atom ~/.config/karabiner/karabiner.json"
-
-
-# --- config savers ---
+# --- config lists ---
 alias apmlist="apm list -ib > ~/coding/dotfiles/atom/apm_list.txt"
 alias brewlist="brew list --versions > ~/coding/dotfiles/cellar/brew_list.txt"
 alias codelist="code --list-extensions --show-versions > ~/coding/dotfiles/vscode/extensionList.txt"
@@ -110,6 +103,8 @@ function setenv() {
     export DATABASE_URL="$(heroku config:get DATABASE_URL)"
   fi
 }
+
+alias sortenv="sort -o .env .env"
 
 function init-repo() {
   mkdir "$1"
