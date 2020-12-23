@@ -38,7 +38,7 @@ function setenv() {
 }
 
 function show() {
-  ls -lAh | grep $1
+  la | grep --ignore-case $1
 }
 
 function search() {
@@ -117,7 +117,7 @@ alias sfdxcode="sfdx force:source:retrieve -x ~/coding/salesforce/apex.xml --ver
 # --- misc ---
 alias -g icloud="/Users/thomas/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias at="atom ."
-alias youtube-dl-mp3="youtube-dl --extract-audio --audio-format mp3 --embed-thumbnail"
+alias youtube-dl-mp3="youtube-dl --format 'bestaudio/best' --extract-audio --audio-format mp3 --embed-thumbnail"
 
 function init-repo() {
   mkdir "$1"
