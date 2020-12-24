@@ -26,6 +26,7 @@ alias type="type -a"
 alias which="which -a"
 alias lest="less +G"
 alias sortenv="sort -o .env .env"
+alias grep="grep --ignore-case --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
 
 function setenv() {
   set -a
@@ -38,7 +39,7 @@ function setenv() {
 }
 
 function show() {
-  la | grep --ignore-case $1
+  la | grep $1
 }
 
 function search() {
@@ -59,6 +60,8 @@ function search-bin() {
   echo '/bin:'
   ls -lAh /bin | grep $1
 }
+
+export GREP_COLOR="0;34"
 
 
 # --- config lists ---
@@ -132,7 +135,7 @@ function init-repo() {
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export LSCOLORS="Fxfxcxdxbxegedabagacad"
 export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
-export LESS=' -R '
+export LESS=" --RAW-CONTROL-CHARS --ignore-case "
 export LOGS_DIR="/Users/thomas/coding/logs"
 export ARCHIVE_DIR="/Users/thomas/coding/archive"
 
