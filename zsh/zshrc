@@ -61,6 +61,10 @@ function search-bin() {
   ls -lAh /bin | grep $1
 }
 
+export LSCOLORS="Fxfxcxdxbxegedabagacad"
+export LS_COLORS="di=1;35:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export LESS=" --RAW-CONTROL-CHARS --ignore-case "
 export GREP_COLOR="0;34"
 
 
@@ -132,12 +136,9 @@ function init-repo() {
   git commit -m 'init repo'
 }
 
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-export LSCOLORS="Fxfxcxdxbxegedabagacad"
-export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
-export LESS=" --RAW-CONTROL-CHARS --ignore-case "
 export LOGS_DIR="/Users/thomas/coding/logs"
 export ARCHIVE_DIR="/Users/thomas/coding/archive"
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
