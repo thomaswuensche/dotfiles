@@ -23,7 +23,8 @@ function insert_sep() {
   if [[ -n $LAST_K_COLOR ]]; then
     echo -n "%F{$LAST_K_COLOR}%K{$1}$SEP%F{$EXTRA_INFO_F_COLOR}"
   else
-    echo -n "%K{$1} %F{$EXTRA_INFO_F_COLOR}"
+    # only set colors
+    echo -n "%K{$1}%F{$EXTRA_INFO_F_COLOR}"
   fi
   LAST_K_COLOR=$1
 }
@@ -59,7 +60,7 @@ function prompt_extra_info() {
 
 function git_start() {
   insert_sep $GIT_START_K_COLOR
-  echo -n "git:"
+  echo -n " git:"
 }
 
 function git_branch_status() {
