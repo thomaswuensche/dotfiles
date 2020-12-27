@@ -47,6 +47,12 @@
   'env var':
     'prefix': 'env'
     'body': 'os.environ[\'${1:ENV_VAR}\']$2'
+  'File read':
+    'prefix': 'file'
+    'body': "with open(${1:'${2:path/to/file}'}) as file:\n\t${3:var} = file.read()"
+  'File write':
+    'prefix': 'filew'
+    'body': "with open(${1:'${2:path/to/file}'}, 'w') as file:\n\tfile.write(${3:content})"
   'debug with pdb':
     'prefix': 'break'
     'body': '# --- breakpoint ---\nbreakpoint()\n# --- breakpoint ---'
