@@ -2,7 +2,7 @@
 	name = thomaswuensche
 	email = 42999314+thomaswuensche@users.noreply.github.com
 [core]
-	editor = nano -w
+	editor = vim
 	autocrlf = input
 [pull]
 	rebase = false

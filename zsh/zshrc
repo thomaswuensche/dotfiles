@@ -139,6 +139,8 @@ function init-repo() {
 export LOGS_DIR="/Users/thomas/coding/logs"
 export ARCHIVE_DIR="/Users/thomas/coding/archive"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+export VISUAL=vim
+export EDITOR=$VISUAL
 
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"

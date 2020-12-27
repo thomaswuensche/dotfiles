@@ -1,6 +1,7 @@
 # files
 command ln -sfhv ~/coding/dotfiles/zsh/twue.zsh-theme ~/.oh-my-zsh/themes/twue.zsh-theme
 command ln -sfhv ~/coding/dotfiles/zsh/zshrc ~/.zshrc
+command ln -sfhv ~/coding/dotfiles/vim/vimrc ~/.vimrc
 command ln -sfhv ~/coding/dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 command ln -sfhv ~/coding/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 command ln -sfhv ~/coding/dotfiles/git-settings/gitconfig ~/.gitconfig
