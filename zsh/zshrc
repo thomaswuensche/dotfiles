@@ -69,20 +69,20 @@ export GREP_COLOR="0;34"
 
 
 # --- config lists ---
-alias apmlist="apm list -ib > ~/coding/dotfiles/atom/apm_list.txt"
+alias apmlist="apm list --installed --bare > ~/coding/dotfiles/atom/apm_list.txt"
 alias brewlist="brew list --versions > ~/coding/dotfiles/cellar/brew_list.txt"
 alias codelist="code --list-extensions --show-versions > ~/coding/dotfiles/vscode/extensionList.txt"
 
 
 # --- git ---
 alias gl="git log"
-alias gdh="git diff HEAD --stat -p"
-alias gdhs="git diff HEAD --staged --stat -p"
+alias gdh="git diff HEAD --stat --patch"
+alias gdhs="git diff HEAD --staged --stat --patch"
 alias grh="git reset HEAD"
 alias grst="git restore"
 alias grsts="git restore --staged"
 alias grsta="git restore -- ."
-alias gfv="git fetch -v"
+alias gfv="git fetch --verbose"
 alias gfa="git fetch --all --prune --jobs=10 --verbose"
 alias gls="git log --stat"
 alias glg="git log --all --decorate --oneline --graph"
