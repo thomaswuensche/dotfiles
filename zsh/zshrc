@@ -80,10 +80,6 @@ alias codelist="code --list-extensions --show-versions > ~/coding/dotfiles/vscod
 alias gl="git log"
 alias gdh="git diff HEAD --stat --patch"
 alias gdhs="git diff HEAD --staged --stat --patch"
-alias grh="git reset HEAD"
-alias grst="git restore"
-alias grsts="git restore --staged"
-alias grsta="git restore -- ."
 alias gfv="git fetch --verbose"
 alias gfa="git fetch --all --prune --jobs=10 --verbose"
 alias gls="git log --stat"
@@ -91,6 +87,25 @@ alias glg="git log --all --decorate --oneline --graph"
 alias gs="git stash"
 alias gro="git remote show origin"
 alias gph="git push heroku"
+
+unalias grs
+unalias grss
+
+function grs() {
+  if [[ -z $@ ]]; then
+    git restore .
+  else
+    git restore $@
+  fi
+}
+
+function grss() {
+  if [[ -z $@ ]]; then
+    git restore --staged .
+  else
+    git restore --staged $@
+  fi
+}
 
 # remove homebrew git completion
 rm /usr/local/share/zsh/site-functions/_git 2> /dev/null
