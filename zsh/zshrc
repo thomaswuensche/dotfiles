@@ -23,7 +23,6 @@ alias lq="tree -a -L 3 -I '.git|*org.eclipse*'"
 alias findregex="find . -iregex"
 alias restart="exec $SHELL"
 alias type="type -a"
-alias which="which -a"
 alias lest="less +G"
 alias sortenv="sort -o .env .env"
 alias grep="grep --ignore-case --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
@@ -67,6 +66,9 @@ export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
 export LESS=" --RAW-CONTROL-CHARS --ignore-case "
 export GREP_COLOR="0;34"
 
+# disable START/STOP output control
+stty -ixon
+
 
 # --- config lists ---
 alias apmlist="apm list --installed --bare > ~/coding/dotfiles/atom/apm_list.txt"
@@ -89,6 +91,9 @@ alias glg="git log --all --decorate --oneline --graph"
 alias gs="git stash"
 alias gro="git remote show origin"
 alias gph="git push heroku"
+
+# remove homebrew git completion
+rm /usr/local/share/zsh/site-functions/_git 2> /dev/null
 
 
 # --- db ---
@@ -147,7 +152,6 @@ export EDITOR=$VISUAL
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-stty -ixon # disables START/STOP output control
 
 
 # --- keybindings ---
