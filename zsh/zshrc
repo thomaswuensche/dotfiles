@@ -93,7 +93,7 @@ unalias grss
 
 function grs() {
   if [[ -z $@ ]]; then
-    git restore .
+    git restore :/
   else
     git restore $@
   fi
@@ -101,7 +101,7 @@ function grs() {
 
 function grss() {
   if [[ -z $@ ]]; then
-    git restore --staged .
+    git restore --staged :/
   else
     git restore --staged $@
   fi
