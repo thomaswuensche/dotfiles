@@ -43,6 +43,8 @@
   'cmd-shift-i': 'editor:auto-indent'
   # defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 70 '<dict><key>enabled</key><false/></dict>'
   'cmd-ctrl-d': 'custom:duplicate-and-comment-line'
+  'cmd-o': 'editor:newline-below'
+  'shift-cmd-o': 'editor:newline-above'
 
 'body':
   'ctrl-tab ^ctrl': 'unset!'
