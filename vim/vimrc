@@ -2,3 +2,9 @@ set hlsearch
 set ignorecase
 set smartcase
 syntax enable
+
+map i <Up>
+map j <Left>
+map k <Down>
+noremap h i
+noremap H I
