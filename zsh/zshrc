@@ -1,7 +1,7 @@
 # path to oh-my-zsh installation
 export ZSH="/Users/thomas/.oh-my-zsh"
 
-ZSH_THEME="twue"
+ZSH_THEME="thowue"
 
 plugins=(
   git
