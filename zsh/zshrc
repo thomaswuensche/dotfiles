@@ -26,6 +26,7 @@ alias type="type -a"
 alias lest="less +G"
 alias sortenv="sort -o .env .env"
 alias grep="grep --ignore-case --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
+alias grepc="grep --context"
 
 function setenv() {
   set -a
