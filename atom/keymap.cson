@@ -45,6 +45,7 @@
   'cmd-ctrl-d': 'custom:duplicate-and-comment-line'
   'cmd-o': 'editor:newline-below'
   'shift-cmd-o': 'editor:newline-above'
+  'cmd-l': 'custom:select-line-contents'
 
 'body':
   'ctrl-tab ^ctrl': 'unset!'

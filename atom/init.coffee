@@ -14,6 +14,16 @@
 # atom.commands.dispatch(atom.views.getView(atom.workspace), 'structure-view:show')
 
 
+atom.commands.add 'atom-text-editor',
+  'custom:select-line-contents': ->
+    editor = atom.workspace.getActiveTextEditor()
+    cursors = editor.getCursorBufferPositions()
+    for cursor in cursors
+      editor.moveToBeginningOfLine()
+      editor.moveToBeginningOfNextWord()
+      editor.selectToEndOfLine()
+
+
 setCursorBufferPositions = (editor, points) ->
   for point, index in points
     if index == 0
