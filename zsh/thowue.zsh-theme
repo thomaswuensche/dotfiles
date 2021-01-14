@@ -124,18 +124,10 @@ function git_stash_status() {
 }
 
 function git_repo_status() {
-  local INDEX
-  INDEX=$(command git status --porcelain -b 2> /dev/null)
+  local repo_status
+  repo_status=$(command git status --porcelain 2> /dev/null)
 
-  if $(echo "$INDEX" | grep '^A  ' &> /dev/null); then
-    git_staged_status
-  elif $(echo "$INDEX" | grep '^M  ' &> /dev/null); then
-    git_staged_status
-  elif $(echo "$INDEX" | grep '^MM ' &> /dev/null); then
-    git_staged_status
-  elif $(echo "$INDEX" | grep '^R  ' &> /dev/null); then
-    git_staged_status
-  elif $(echo "$INDEX" | grep '^D  ' &> /dev/null); then
+  if $(echo "$repo_status" | grep '^[AMRD]. ' &> /dev/null); then
     git_staged_status
   else
     git_dirty_status

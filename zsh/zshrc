@@ -8,6 +8,7 @@ plugins=(
   rails
   brew
   osx
+  gem
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -18,7 +19,7 @@ alias mv="mv -i -v"
 alias cp="cp -i -v"
 alias lar="ls -lArt"
 alias l="ls -1A"
-alias ln="ln -s"
+alias ln="ln -sv"
 alias lq="tree -a -L 3 -I '.git|*org.eclipse*'"
 alias findregex="find . -iregex"
 alias restart="exec $SHELL"
@@ -134,10 +135,6 @@ function psql-heroku() {
 export PGDATA="/usr/local/var/postgres"
 
 
-# --- rails ---
-alias rt="rails test"
-
-
 # --- sfdx ---
 alias sfdxallmd="sfdx force:source:retrieve -x ~/coding/salesforce/package.xml --verbose"
 alias sfdxcode="sfdx force:source:retrieve -x ~/coding/salesforce/apex.xml --verbose"
@@ -148,6 +145,8 @@ alias -g icloud="/Users/thomas/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias at="atom ."
 alias youtube-dl-mp3="youtube-dl --format 'bestaudio/best' --extract-audio --audio-format mp3 --embed-thumbnail"
 alias hlt="heroku logs --tail"
+alias rt="rails test"
+alias gemi="gem install *.gem"
 
 function init-repo() {
   mkdir "$1"
