@@ -95,7 +95,11 @@ unalias grss
 
 function grs() {
   if [[ -z $@ ]]; then
-    git restore :/
+    echo -n 'restore all? '
+    read user_input
+    if [[ $user_input == 'y' ]]; then
+      git restore :/
+    fi
   else
     git restore $@
   fi
@@ -103,7 +107,11 @@ function grs() {
 
 function grss() {
   if [[ -z $@ ]]; then
-    git restore --staged :/
+    echo -n 'unstage all? '
+    read user_input
+    if [[ $user_input == 'y' ]]; then
+      git restore --staged :/
+    fi
   else
     git restore --staged $@
   fi
