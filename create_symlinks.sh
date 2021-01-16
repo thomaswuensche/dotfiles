@@ -36,6 +36,7 @@ function create_dir_symlink() {
 create_file_symlink ~/coding/dotfiles/zsh/thowue.zsh-theme ~/.oh-my-zsh/themes/thowue.zsh-theme
 create_file_symlink ~/coding/dotfiles/zsh/zshrc ~/.zshrc
 create_file_symlink ~/coding/dotfiles/vim/vimrc ~/.vimrc
+create_file_symlink ~/coding/dotfiles/pry/pryrc ~/.pryrc
 create_file_symlink ~/coding/dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 create_file_symlink ~/coding/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 create_file_symlink ~/coding/dotfiles/git-settings/gitconfig ~/.gitconfig
