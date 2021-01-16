@@ -8,3 +8,6 @@ map j <Left>
 map k <Down>
 noremap h i
 noremap H I
+
+nnoremap Q q
+nnoremap q :q<CR>

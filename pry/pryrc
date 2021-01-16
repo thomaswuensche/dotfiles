@@ -1,6 +1,6 @@
 require 'pry-byebug'
 
-Pry.config.pager_alt_screen = true
+Pry.config.less_alt_screen = true
 Pry.config.commands.alias_command 'q', 'exit-program'
 
 if defined?(PryByebug)
