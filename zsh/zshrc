@@ -89,6 +89,7 @@ alias glg="git log --all --decorate --oneline --graph"
 alias gs="git stash"
 alias gro="git remote show origin"
 alias gph="git push heroku"
+alias gpl="git pull"
 
 unalias grs
 unalias grss
