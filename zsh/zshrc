@@ -176,8 +176,3 @@ export EDITOR=$VISUAL
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-
-# --- keybindings ---
-bindkey '^j' backward-word
-bindkey '^l' forward-word
