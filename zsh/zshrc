@@ -90,6 +90,7 @@ alias gs="git stash"
 alias gro="git remote show origin"
 alias gph="git push heroku"
 alias gpl="git pull"
+alias gdm='git diff $(git_main_branch)'
 
 unalias grs
 unalias grss
