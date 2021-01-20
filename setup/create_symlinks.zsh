@@ -41,8 +41,7 @@ create_file_symlink ~/coding/dotfiles/vscode/keybindings.json ~/Library/Applicat
 create_file_symlink ~/coding/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 create_file_symlink ~/coding/dotfiles/git-settings/gitconfig ~/.gitconfig
 create_file_symlink ~/coding/dotfiles/youtube-dl/config ~/.config/youtube-dl/config
-create_file_symlink ~/coding/dotfiles/scripts/format-name.rb /usr/local/bin/format-name
-chmod +x ~/coding/dotfiles/scripts/format-name.rb
+create_file_symlink ~/coding/dotfiles/scripts/format_name.rb /usr/local/bin/format-name
 
 
 # directories
