@@ -59,6 +59,9 @@
   'exit script':
     'prefix': 'exit'
     'body': 'import sys; sys.exit()'
+  'import up':
+    'prefix': 'importup'
+    'body': "import sys, os; sys.path.append(os.path.join(os.path.dirname(__file__), '..'))"
 
 '.php.source':
   'function …':
