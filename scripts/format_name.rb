@@ -10,7 +10,7 @@ name.downcase!
 name.gsub!('ä', 'ae')
 name.gsub!('ö', 'oe')
 name.gsub!('ü', 'ue')
-name.gsub!(/[\s-]/, '_')
+name.gsub!(/[\s\-.]/, '_')
 name.gsub!(/\W/, '')
 name.squeeze!('_')
 name.delete_prefix!('_')
