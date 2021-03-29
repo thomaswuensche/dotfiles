@@ -14,6 +14,43 @@
 # atom.commands.dispatch(atom.views.getView(atom.workspace), 'structure-view:show')
 
 
+jump_has_empty_row = (direction) ->
+  editor = atom.workspace.getActiveTextEditor()
+  cursor = editor.getCursorBufferPosition()
+
+  rows = [1..atom.config.get('line-jumper.numberOfLines')]
+
+  if direction == 'up'
+    rows = rows.map (i) -> editor.getBuffer().isRowBlank(cursor.row - i)
+  else
+    rows = rows.map (i) -> editor.getBuffer().isRowBlank(cursor.row + i)
+
+  return rows.some (row_empty) -> row_empty == true
+
+
+at_last_row = ->
+  editor = atom.workspace.getActiveTextEditor()
+  return editor.getCursorBufferPosition().row == editor.getBuffer().getLastRow()
+
+
+atom.commands.add 'atom-text-editor',
+'custom:dynamic-line-jump-down': ->
+  editor = atom.workspace.getActiveTextEditor()
+
+  if jump_has_empty_row('down')
+    editor.moveToBeginningOfNextParagraph()
+
+    while editor.getBuffer().isRowBlank(editor.getCursorBufferPosition().row) and not at_last_row()
+      editor.moveDown()
+
+    if at_last_row() and editor.getBuffer().isRowBlank(editor.getCursorBufferPosition().row)
+      editor.moveUp()
+  else
+    editor.moveDown(atom.config.get('line-jumper.numberOfLines'))
+
+  editor.moveToFirstCharacterOfLine()
+
+
 atom.commands.add 'atom-text-editor',
   'custom:select-line-contents': ->
     editor = atom.workspace.getActiveTextEditor()

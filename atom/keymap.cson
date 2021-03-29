@@ -37,7 +37,7 @@
   'cmd-alt-up': 'editor:select-larger-syntax-node'
   'cmd-alt-down': 'editor:select-smaller-syntax-node'
   'alt-up': 'editor:move-to-beginning-of-previous-paragraph'
-  'alt-down': 'editor:move-to-beginning-of-next-paragraph'
+  'alt-down': 'custom:dynamic-line-jump-down'
   'alt-shift-up': 'editor:select-to-beginning-of-previous-paragraph'
   'alt-shift-down': 'editor:select-to-beginning-of-next-paragraph'
   'cmd-shift-i': 'editor:auto-indent'
