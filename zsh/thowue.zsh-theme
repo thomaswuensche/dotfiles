@@ -1,5 +1,8 @@
 SEP=$'\ue0b0'
 
+USERNAME_COLOR="166"
+HOST_COLOR="245"
+PATH_COLOR="070"
 EXTRA_INFO_F_COLOR="252"
 GIT_START_K_COLOR="239"
 GIT_CLEAN_K_COLOR="022"
@@ -14,7 +17,7 @@ SFDX_K_COLOR="054"
 
 
 PROMPT='
-%B%F{245}%m: %F{070}$(pwd)%f%b
+%B[%F{$USERNAME_COLOR}$USERNAME%f:%F{$HOST_COLOR}$SHORT_HOST%f] %F{$PATH_COLOR}$(pwd)%f%b
 $(prompt_extra_info)%f%k$ '
 
 
