@@ -47,7 +47,7 @@ function prompt_extra_info() {
 
   if in_virtualenv; then
     insert_sep $VENV_K_CLR
-    echo -n " ${VIRTUAL_ENV##*/} "
+    echo -n " ${VIRTUAL_ENV:t} "
     HAS_EXTRA_INFO=true
   fi
 
