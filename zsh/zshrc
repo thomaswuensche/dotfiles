@@ -28,6 +28,7 @@ alias lest="less +G"
 alias sortenv="sort -o .env .env"
 alias grep="grep --ignore-case --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
 alias grepc="grep --context"
+alias diff="git diff --no-index"
 
 function setenv() {
   set -a
