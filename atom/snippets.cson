@@ -68,6 +68,12 @@
   'super __init__':
     'prefix': 'superi'
     'body': "super().__init__($1)$2"
+  'logging info':
+    'prefix': 'logi'
+    'body': "logging.info($1)"
+  'logging debug':
+    'prefix': 'logd'
+    'body': "logging.debug($1)"
 
 '.php.source':
   'function …':
