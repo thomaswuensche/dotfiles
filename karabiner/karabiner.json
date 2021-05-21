@@ -421,6 +421,48 @@
                         ]
                     },
                     {
+                        "description": "onenote delete to beginning: cmd-shift-j",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "com.microsoft.onenote.mac"
+                                        ]
+                                    },
+                                    {
+                                        "name": "wFN",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    }
+                                ],
+                                "from": {
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    },
+                                    "key_code": "j"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "command",
+                                            "left_shift"
+                                        ]
+                                    },
+                                    {
+                                        "key_code": "delete_or_backspace"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "change cmd-j to delete",
                         "manipulators": [
                             {
@@ -674,7 +716,7 @@
                         ]
                     },
                     {
-                        "description": "onenote delete to beginning from cmd-delete",
+                        "description": "onenote delete to beginning: cmd-delete",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -697,48 +739,6 @@
                                         ]
                                     },
                                     "key_code": "delete_or_backspace"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_arrow",
-                                        "modifiers": [
-                                            "command",
-                                            "left_shift"
-                                        ]
-                                    },
-                                    {
-                                        "key_code": "delete_or_backspace"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "onenote delete to beginning from cmd-shift-j",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": [
-                                            "com.microsoft.onenote.mac"
-                                        ]
-                                    },
-                                    {
-                                        "name": "wFN",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    }
-                                ],
-                                "from": {
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command",
-                                            "shift"
-                                        ]
-                                    },
-                                    "key_code": "j"
                                 },
                                 "to": [
                                     {
