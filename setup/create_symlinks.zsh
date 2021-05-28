@@ -42,8 +42,10 @@ create_file_symlink ~/coding/dotfiles/vscode/settings.json ~/Library/Application
 create_file_symlink ~/coding/dotfiles/git-settings/gitconfig ~/.gitconfig
 create_file_symlink ~/coding/dotfiles/youtube-dl/config ~/.config/youtube-dl/config
 create_file_symlink ~/coding/dotfiles/scripts/format_name.rb /usr/local/bin/format-name
+create_file_symlink ~/coding/dotfiles/source-highlight/lang.map /usr/local/Cellar/source-highlight/3.1.9_4/share/source-highlight/lang.map
 create_file_symlink ~/coding/dotfiles/source-highlight/esc.style /usr/local/Cellar/source-highlight/3.1.9_4/share/source-highlight/esc.style
 create_file_symlink ~/coding/dotfiles/source-highlight/ruby.lang /usr/local/Cellar/source-highlight/3.1.9_4/share/source-highlight/ruby.lang
+create_file_symlink ~/coding/dotfiles/source-highlight/apex.lang /usr/local/Cellar/source-highlight/3.1.9_4/share/source-highlight/apex.lang
 
 
 # directories
