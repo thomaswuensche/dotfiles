@@ -166,8 +166,7 @@ function git_dirty_status() {
 }
 
 function sfdx_username() {
-  config="$(cat .sfdx/sfdx-config.json)"
-  defaultusername="$(echo ${config} | jq -r .defaultusername)"
+  defaultusername="$(cat $(sfdx_config_path) | jq -r .defaultusername)"
   echo -n " ${defaultusername} "
 }
 
@@ -188,9 +187,18 @@ function in_virtualenv() {
 }
 
 function in_sfdx_repo() {
-  if [[ -f "sfdx-project.json" ]]; then
+  if [[ -f "$(sfdx_config_path)" ]]; then
     return 0
   else
     return 1
+  fi
+}
+
+function sfdx_config_path() {
+  local root_path=$(git rev-parse --show-toplevel 2> /dev/null)
+  if [[ -n $root_path ]]; then
+    echo "${root_path}/.sfdx/sfdx-config.json"
+  else
+    echo ".sfdx/sfdx-config.json"
   fi
 }
