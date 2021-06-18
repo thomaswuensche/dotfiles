@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Monokai Dimmed",
     "workbench.colorCustomizations": {
         "editor.background": "#20232A"
     },
@@ -20,5 +19,8 @@
     "atomKeymap.promptV3Features": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.formatOnPaste": true,
-    "gitlens.views.compare.files.layout": "tree"
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "gitlens.views.compare.files.layout": "tree",
+    "workbench.startupEditor": "newUntitledFile"
 }

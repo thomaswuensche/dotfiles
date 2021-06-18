@@ -158,5 +158,9 @@
     {
         "key": "ctrl+9",
         "command": "-workbench.action.openEditorAtIndex9"
+    },
+    {
+        "key": "shift+cmd+m",
+        "command": "sfdx.force.source.deploy.current.source.file"
     }
 ]
