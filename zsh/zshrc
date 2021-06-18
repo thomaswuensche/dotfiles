@@ -155,6 +155,7 @@ export PGDATA="/usr/local/var/postgres"
 # --- sfdx ---
 alias sfdxallmd="sfdx force:source:retrieve -x ~/coding/salesforce/package.xml --verbose"
 alias sfdxcode="sfdx force:source:retrieve -x ~/coding/salesforce/apex.xml --verbose"
+alias sfdxdeploycode="sfdx force:source:deploy -x ~/coding/salesforce/apex.xml -l NoTestRun --verbose"
 
 
 # --- misc ---
@@ -166,6 +167,7 @@ alias hll="heroku logs -n 500 | less +G"
 alias rt="rails test"
 alias gemi="gem install *.gem"
 alias brewl="brew list --versions | less"
+alias cdf="cd force-app/main/default"
 
 function init-repo() {
   mkdir "$1"
@@ -175,6 +177,15 @@ function init-repo() {
   echo '.env' > .gitignore
   git add .gitignore
   git commit -m 'init repo'
+}
+
+function co() {
+  local root_path=$(git rev-parse --show-toplevel 2> /dev/null)
+  if [[ -n $root_path ]]; then
+    code $root_path
+  else
+    code .
+  fi
 }
 
 export LOGS_DIR="/Users/thomas/coding/logs"
