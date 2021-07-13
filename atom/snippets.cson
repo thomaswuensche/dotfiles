@@ -74,6 +74,9 @@
   'logging debug':
     'prefix': 'logd'
     'body': "logging.debug($1)"
+  'for loop with index':
+    'prefix': 'fori'
+    'body': "for ${1:index}, ${2:value} in enumerate(${3:variable}):\n\t${4:pass}"
 
 '.php.source':
   'function …':
