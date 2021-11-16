@@ -7,7 +7,7 @@ plugins=(
   git
   rails
   brew
-  osx
+  macos
   gem
 )
 
@@ -33,7 +33,11 @@ alias envl="env | less +G"
 
 function setenv() {
   set -a
-  source .env
+  if [[ -z $@ ]]; then
+    source .env
+  else
+    source $@
+  fi
   set +a
 
   if [[ $HEROKU_PG_DB ]]; then
@@ -94,7 +98,9 @@ alias gfa="git fetch --all --prune --jobs=10 --verbose"
 alias gls="git log --stat"
 alias glg="git log --all --decorate --oneline --graph"
 alias gs="git stash"
+alias gsl="git stash list"
 alias gro="git remote show origin"
+alias grh="git remote show heroku"
 alias gph="git push heroku"
 alias gpl="git pull"
 alias gdm='git diff $(git_main_branch)'
@@ -161,7 +167,6 @@ alias sfdxdeploycode="sfdx force:source:deploy -x ~/coding/salesforce/apex.xml -
 # --- misc ---
 alias -g icloud="/Users/thomas/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias at="atom ."
-alias youtube-dl-mp3="youtube-dl --format 'bestaudio/best' --extract-audio --audio-format mp3 --embed-thumbnail"
 alias hlt="heroku logs --tail"
 alias hll="heroku logs -n 500 | less +G"
 alias rt="rails test"
@@ -187,6 +192,38 @@ function co() {
     code .
   fi
 }
+
+function ytdl-mp3() {
+  echo -n 'Artist: '
+  read artist
+  echo -n 'Title: '
+  read title
+  local output=$(youtube-dl --format 'bestaudio/best' --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --output '~/Downloads/tracks/%(title)s.%(ext)s' "$1" | tee /dev/tty)
+  echo '---'
+  local ffmpeg_dest=$(echo $output | grep '\[ffmpeg\] Destination')
+  echo $ffmpeg_dest
+  local file_path_vbr=$(echo $ffmpeg_dest | grep --only-matching '\/.*\.mp3')
+  echo $file_path_vbr
+  echo '---'
+  bitrate $file_path_vbr
+  echo '---'
+  echo 'converting to 320k CBR...'
+  if [[ -n $artist && -n $title ]]; then
+    local file_path_tmp="$file_path_vbr.tmp"
+    mv $file_path_vbr $file_path_tmp
+    file_name="$artist - $title"
+    ffmpeg -i $file_path_tmp -b:a 320k -vsync 2 -metadata artist=$artist -metadata title=$title "$HOME/Downloads/tracks/$file_name.mp3"
+    # output=$(youtube-dl --format 'bestaudio/best' --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --output "~/Downloads/tracks/$file_name.%(ext)s" --postprocessor-args "-metadata artist='$artist' -metadata title='$title'" "$1" | tee /dev/tty)
+    rm $file_path_tmp
+  fi
+  echo '---'
+  bitrate "$HOME/Downloads/tracks/$file_name.mp3"
+}
+
+function bitrate() {
+  mpck "$1" | grep bitrate
+}
+
 
 export LOGS_DIR="/Users/thomas/coding/logs"
 export ARCHIVE_DIR="/Users/thomas/coding/archive"

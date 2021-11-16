@@ -18,9 +18,14 @@
     "editor.minimap.renderCharacters": false,
     "atomKeymap.promptV3Features": true,
     "editor.multiCursorModifier": "ctrlCmd",
-    "editor.formatOnPaste": true,
+    "editor.formatOnPaste": false,
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "gitlens.views.compare.files.layout": "tree",
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "search.mode": "newEditor",
+    "explorer.confirmDragAndDrop": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.guides.bracketPairsHorizontal": false
 }
