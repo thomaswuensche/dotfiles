@@ -213,7 +213,6 @@ function ytdl-mp3() {
     mv $file_path_vbr $file_path_tmp
     file_name="$artist - $title"
     ffmpeg -i $file_path_tmp -b:a 320k -vsync 2 -metadata artist=$artist -metadata title=$title "$HOME/Downloads/tracks/$file_name.mp3"
-    # output=$(youtube-dl --format 'bestaudio/best' --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --output "~/Downloads/tracks/$file_name.%(ext)s" --postprocessor-args "-metadata artist='$artist' -metadata title='$title'" "$1" | tee /dev/tty)
     rm $file_path_tmp
   fi
   echo '---'
