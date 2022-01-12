@@ -1,31 +1,33 @@
 {
+    "telemetry.telemetryLevel": "off",
+    "workbench.colorTheme": "Atom One Dark",
     "workbench.colorCustomizations": {
         "editor.background": "#20232A"
     },
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
-    "salesforcedx-vscode-apex.java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home",
-    "editor.fontFamily": "Menlo, Consolas, Monaco, 'Courier New', monospace",
+    "editor.tokenColorCustomizations": {
+        "comments": "#808080"
+    },
+    "editor.fontFamily": "Menlo, Monaco, monospace",
     "editor.fontSize": 14,
-    "editor.occurrencesHighlight": false,
     "[Log]": {
         "editor.fontSize": 13
     },
     "terminal.integrated.fontFamily": "Inconsolata for Powerline",
     "terminal.integrated.fontSize": 16,
-    "lineJumper.linesToJump": 5,
-    "editor.minimap.showSlider": "always",
-    "editor.minimap.renderCharacters": false,
-    "atomKeymap.promptV3Features": true,
+    "editor.occurrencesHighlight": false,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.formatOnPaste": false,
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
-    "gitlens.views.compare.files.layout": "tree",
     "workbench.startupEditor": "newUntitledFile",
     "search.mode": "newEditor",
     "explorer.confirmDragAndDrop": false,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.renderCharacters": false,
     "editor.bracketPairColorization.enabled": true,
     "editor.guides.bracketPairs": true,
-    "editor.guides.bracketPairsHorizontal": false
+    "editor.guides.bracketPairsHorizontal": false,
+    "atomKeymap.promptV3Features": true,
+    "lineJumper.linesToJump": 5,
+    "gitlens.codeLens.enabled": false,
 }
