@@ -75,7 +75,7 @@ function mdc() {
 
 export LSCOLORS="Fxfxcxdxbxegedabagacad"
 export LS_COLORS="di=1;35:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
-export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export LESSOPEN="| /opt/homebrew/bin/src-hilite-lesspipe.sh %s"
 export LESS=" --RAW-CONTROL-CHARS --ignore-case "
 export GREP_COLOR="0;34"
 
@@ -96,9 +96,11 @@ alias gdhs="git diff HEAD --staged --stat --patch"
 alias gfv="git fetch --verbose"
 alias gfa="git fetch --all --prune --jobs=10 --verbose"
 alias gls="git log --stat"
-alias glg="git log --all --decorate --oneline --graph"
+alias glg="git log --decorate --oneline --graph --author-date-order"
+alias glga="git log --decorate --oneline --graph --author-date-order --all"
 alias gs="git stash"
 alias gsl="git stash list"
+alias gslp="git stash list --stat --patch"
 alias gro="git remote show origin"
 alias grh="git remote show heroku"
 alias gph="git push heroku"
@@ -132,6 +134,10 @@ function grss() {
   fi
 }
 
+function gsb() {
+  git show "$1:./$2"
+}
+
 # remove homebrew git completion
 rm /usr/local/share/zsh/site-functions/_git 2> /dev/null
 
@@ -162,6 +168,7 @@ export PGDATA="/usr/local/var/postgres"
 alias sfdxallmd="sfdx force:source:retrieve -x ~/coding/salesforce/package.xml --verbose"
 alias sfdxcode="sfdx force:source:retrieve -x ~/coding/salesforce/apex.xml --verbose"
 alias sfdxdeploycode="sfdx force:source:deploy -x ~/coding/salesforce/apex.xml -l NoTestRun --verbose"
+alias sfdxv="sfdx force:source:deploy --checkonly --testlevel=RunSpecifiedTests"
 
 
 # --- misc ---
@@ -173,6 +180,8 @@ alias rt="rails test"
 alias gemi="gem install *.gem"
 alias brewl="brew list --versions | less"
 alias cdf="cd force-app/main/default"
+alias codepg="pgrep -l -f 'vscode/extensions/salesforce'"
+alias codepk="pkill -l -f 'vscode/extensions/salesforce'"
 
 function init-repo() {
   mkdir "$1"
@@ -230,6 +239,9 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export VISUAL=vim
 export EDITOR=$VISUAL
 
-eval "$(rbenv init -)"
+eval "$(rbenv init - zsh)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/Users/thomas/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
