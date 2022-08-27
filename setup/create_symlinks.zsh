@@ -37,18 +37,18 @@ create_file_symlink ~/coding/dotfiles/zsh/thowue.zsh-theme ~/.oh-my-zsh/themes/t
 create_file_symlink ~/coding/dotfiles/zsh/zshrc ~/.zshrc
 create_file_symlink ~/coding/dotfiles/vim/vimrc ~/.vimrc
 create_file_symlink ~/coding/dotfiles/pry/pryrc ~/.pryrc
+create_file_symlink ~/coding/dotfiles/git-settings/gitconfig ~/.gitconfig
+create_file_symlink ~/coding/dotfiles/scripts/format_name.rb /usr/local/bin/format-name
 create_file_symlink ~/coding/dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 create_file_symlink ~/coding/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-create_file_symlink ~/coding/dotfiles/git-settings/gitconfig ~/.gitconfig
 create_file_symlink ~/coding/dotfiles/youtube-dl/config ~/.config/youtube-dl/config
-create_file_symlink ~/coding/dotfiles/scripts/format_name.rb /usr/local/bin/format-name
-create_file_symlink ~/coding/dotfiles/source-highlight/lang.map /usr/local/Cellar/source-highlight/3.1.9_4/share/source-highlight/lang.map
-create_file_symlink ~/coding/dotfiles/source-highlight/esc.style /usr/local/Cellar/source-highlight/3.1.9_4/share/source-highlight/esc.style
-create_file_symlink ~/coding/dotfiles/source-highlight/ruby.lang /usr/local/Cellar/source-highlight/3.1.9_4/share/source-highlight/ruby.lang
-create_file_symlink ~/coding/dotfiles/source-highlight/apex.lang /usr/local/Cellar/source-highlight/3.1.9_4/share/source-highlight/apex.lang
+create_file_symlink ~/coding/dotfiles/source-highlight/lang.map /opt/homebrew/Cellar/source-highlight/3.1.9_5/share/source-highlight/lang.map
+create_file_symlink ~/coding/dotfiles/source-highlight/esc.style /opt/homebrew/Cellar/source-highlight/3.1.9_5/share/source-highlight/esc.style
+create_file_symlink ~/coding/dotfiles/source-highlight/ruby.lang /opt/homebrew/Cellar/source-highlight/3.1.9_5/share/source-highlight/ruby.lang
+create_file_symlink ~/coding/dotfiles/source-highlight/apex.lang /opt/homebrew/Cellar/source-highlight/3.1.9_5/share/source-highlight/apex.lang
 
 
 # directories
-create_dir_symlink ~/coding/dotfiles/atom ~/.atom
 create_dir_symlink ~/coding/dotfiles/karabiner ~/.config/karabiner
 create_dir_symlink ~/coding/dotfiles/vscode/snippets ~/Library/Application\ Support/Code/User/snippets
+create_dir_symlink ~/coding/dotfiles/atom ~/.atom
