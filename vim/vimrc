@@ -9,7 +9,7 @@ map k <Down>
 noremap h i
 noremap H I
 
-nnoremap ⁄ {
+nnoremap [ {
 nnoremap ∆ }
 
 nnoremap Q q
