@@ -2,7 +2,7 @@
     "telemetry.telemetryLevel": "off",
     "workbench.colorTheme": "Atom One Dark",
     "workbench.colorCustomizations": {
-        "editor.background": "#20232A"
+        "editor.background": "#292025"
     },
     "editor.tokenColorCustomizations": {
         "comments": "#808080"
@@ -30,4 +30,11 @@
     "atomKeymap.promptV3Features": true,
     "lineJumper.linesToJump": 5,
     "gitlens.codeLens.enabled": false,
+    "zenMode.centerLayout": false,
+    "zenMode.restore": false,
+    "search.exclude": {
+        "**/logs": true
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "apexPMD.runOnFileOpen": true,
 }
