@@ -16,6 +16,11 @@
     "terminal.integrated.fontSize": 16,
     "editor.occurrencesHighlight": false,
     "editor.multiCursorModifier": "ctrlCmd",
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.quickSuggestions": {
+        "other": "on",
+        "strings": "on"
+    },
     "editor.formatOnPaste": false,
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
@@ -36,5 +41,5 @@
         "**/logs": true
     },
     "diffEditor.ignoreTrimWhitespace": false,
-    "apexPMD.runOnFileOpen": true,
+    "apexPMD.runOnFileOpen": true
 }
