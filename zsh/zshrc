@@ -9,6 +9,8 @@ plugins=(
   brew
   macos
   gem
+  docker
+  docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -30,6 +32,7 @@ alias grep="grep --ignore-case --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.sv
 alias grepc="grep --context"
 alias diff="git diff --no-index"
 alias envl="env | less +G"
+alias -g hlp="--help | less"
 
 function setenv() {
   set -a
@@ -182,6 +185,7 @@ alias brewl="brew list --versions | less"
 alias cdf="cd force-app/main/default"
 alias codepg="pgrep -l -f 'vscode/extensions/salesforce'"
 alias codepk="pkill -l -f 'vscode/extensions/salesforce'"
+alias dspr="docker system prune"
 
 function init-repo() {
   mkdir "$1"
