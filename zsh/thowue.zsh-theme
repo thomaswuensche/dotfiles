@@ -2,6 +2,7 @@ SEP=$'\ue0b0'
 
 BRKT_CLR="250"
 USERNAME_CLR="166"
+ROOT_CLR="013"
 HOST_CLR="245"
 PATH_CLR="070"
 EXTRA_INFO_F_CLR="252"
@@ -18,9 +19,17 @@ SFDX_K_CLR="054"
 
 
 PROMPT='
-%B%F{$BRKT_CLR}[%F{$USERNAME_CLR}$USERNAME%F{$BRKT_CLR}:%F{$HOST_CLR}$SHORT_HOST%F{$BRKT_CLR}] %F{$PATH_CLR}$(pwd)%f%b
+%B%F{$BRKT_CLR}[$(username_str)%F{$BRKT_CLR}:%F{$HOST_CLR}$SHORT_HOST%F{$BRKT_CLR}] %F{$PATH_CLR}$(pwd)%f%b
 $(prompt_extra_info)%f%k$ '
 
+
+function username_str() {
+  if [[ $USERNAME = 'root' ]]; then
+    echo -n "%F{$ROOT_CLR}%Uroot%u"
+  else
+    echo -n "%F{$USERNAME_CLR}$USERNAME"
+  fi
+}
 
 # inserts separator and sets bac(K)ground color until changed
 function insert_sep() {

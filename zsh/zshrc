@@ -11,8 +11,10 @@ plugins=(
   gem
   docker
   docker-compose
+  kubectl
 )
 
+export ZSH_DISABLE_COMPINIT_WARN=true
 source $ZSH/oh-my-zsh.sh
 
 
@@ -32,6 +34,7 @@ alias grep="grep --ignore-case --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.sv
 alias grepc="grep --context"
 alias diff="git diff --no-index"
 alias envl="env | less +G"
+alias -g lss="| less"
 alias -g hlp="--help | less"
 
 function setenv() {
@@ -104,6 +107,7 @@ alias glga="git log --decorate --oneline --graph --author-date-order --all"
 alias gs="git stash"
 alias gsl="git stash list"
 alias gslp="git stash list --stat --patch"
+alias gr="git remote --verbose"
 alias gro="git remote show origin"
 alias grh="git remote show heroku"
 alias gph="git push heroku"
@@ -168,9 +172,9 @@ export PGDATA="/usr/local/var/postgres"
 
 
 # --- sfdx ---
-alias sfdxallmd="sfdx force:source:retrieve -x ~/coding/salesforce/package.xml --verbose"
-alias sfdxcode="sfdx force:source:retrieve -x ~/coding/salesforce/apex.xml --verbose"
-alias sfdxdeploycode="sfdx force:source:deploy -x ~/coding/salesforce/apex.xml -l NoTestRun --verbose"
+alias sfdxallmd="sfdx force:source:retrieve -x ~/coding/salesforce/package_all.xml --verbose"
+alias sfdxcode="sfdx force:source:retrieve -x ~/coding/salesforce/package_code.xml --verbose"
+alias sfdxdeploycode="sfdx force:source:deploy -x ~/coding/salesforce/package_code.xml -l NoTestRun --verbose"
 alias sfdxv="sfdx force:source:deploy --checkonly --testlevel=RunSpecifiedTests"
 
 
@@ -186,6 +190,7 @@ alias cdf="cd force-app/main/default"
 alias codepg="pgrep -l -f 'vscode/extensions/salesforce'"
 alias codepk="pkill -l -f 'vscode/extensions/salesforce'"
 alias dspr="docker system prune"
+alias kdp="kubectl describe pods | less"
 
 function init-repo() {
   mkdir "$1"
@@ -211,9 +216,9 @@ function ytdl-mp3() {
   read artist
   echo -n 'Title: '
   read title
-  local output=$(youtube-dl --format 'bestaudio/best' --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --output '~/Downloads/tracks/%(title)s.%(ext)s' "$1" | tee /dev/tty)
+  local output=$(yt-dlp --format 'bestaudio/best' --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --output '~/Downloads/tracks/%(title)s.%(ext)s' "$1" | tee /dev/tty)
   echo '---'
-  local ffmpeg_dest=$(echo $output | grep '\[ffmpeg\] Destination')
+  local ffmpeg_dest=$(echo $output | grep '\[ExtractAudio\] Destination')
   echo $ffmpeg_dest
   local file_path_vbr=$(echo $ffmpeg_dest | grep --only-matching '\/.*\.mp3')
   echo $file_path_vbr
