@@ -21,6 +21,10 @@
         "other": "on",
         "strings": "on"
     },
+    "editor.snippetSuggestions": "top",
+    "editor.wordBasedSuggestions": true,
+    "editor.suggest.showWords": true,
+    "editor.suggest.localityBonus": true,
     "editor.formatOnPaste": false,
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
@@ -32,6 +36,12 @@
     "editor.bracketPairColorization.enabled": true,
     "editor.guides.bracketPairs": true,
     "editor.guides.bracketPairsHorizontal": false,
+    "editor.rulers": [
+        {
+            "column": 120,
+            "color": "#777777"
+        }
+    ],
     "atomKeymap.promptV3Features": true,
     "lineJumper.linesToJump": 5,
     "gitlens.codeLens.enabled": false,

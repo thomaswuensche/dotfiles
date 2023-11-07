@@ -1,11 +1,43 @@
 {
 	"List SOQL Query": {
 		"prefix": "listq",
-		"body": "List<${1:Object}> ${2:listName} = [\n\tSELECT Id, ${3:fields}\n\tFROM ${1:Object}$4\n];$0"
+		"body": [
+			"List<${1:Object}> ${2:listName} = [",
+			"\tSELECT Id, ${3:fields}",
+			"\tFROM ${1:Object}$4",
+			"];$0"
+		]
 	},
 
 	"Query Single Object": {
 		"prefix": "quer",
-		"body": "${1:Object} ${2:varName} = [\n\tSELECT Id, ${3:fields} \n\tFROM ${1:Object} \n\tWHERE ${4:filter} = ${5:value} \n\tLIMIT 1\n];$0"
+		"body": [
+			"${1:Object} ${2:varName} = [",
+			"\tSELECT Id, ${3:fields}",
+			"\tFROM ${1:Object}",
+			"\tWHERE ${4:filter} = ${5:value}",
+			"\tLIMIT 1",
+			"];$0"
+		]
+	},
+
+	"New List": {
+		"prefix": "nlist",
+		"body": "List<${1:Object}> ${2:listName} = new List<${1:Object}>();$0"
+	},
+
+	"New Set": {
+		"prefix": "nset",
+		"body": "Set<${1:Object}> ${2:setName} = new Set<${1:Object}>();$0"
+	},
+
+	"Id Set": {
+		"prefix": "idset",
+		"body": [
+			"Set<${1:Id}> ${2:varName} = new Set<${1:Id}>();",
+			"for (${3:Object} ${4:objectVar} : ${5:objectList}) {",
+			"\t${2:varName}.add(${4:objectVar}.${6:Id});",
+			"}"
+		]
 	}
 }
