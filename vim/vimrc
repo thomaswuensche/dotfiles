@@ -11,6 +11,3 @@ noremap H I
 
 nnoremap [ {
 nnoremap ∆ }
-
-nnoremap Q q
-nnoremap q :q<CR>
