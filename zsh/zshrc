@@ -176,6 +176,7 @@ alias sfdxallmd="sfdx force:source:retrieve -x ~/coding/salesforce/package_all.x
 alias sfdxcode="sfdx force:source:retrieve -x ~/coding/salesforce/package_code.xml --verbose"
 alias sfdxdeploycode="sfdx force:source:deploy -x ~/coding/salesforce/package_code.xml -l NoTestRun --verbose"
 alias sfdxv="sfdx force:source:deploy --checkonly --testlevel=RunSpecifiedTests"
+alias sfdepl="sf project deploy start"
 
 
 # --- misc ---
@@ -191,6 +192,7 @@ alias codepg="pgrep -l -f 'vscode/extensions/salesforce'"
 alias codepk="pkill -l -f 'vscode/extensions/salesforce'"
 alias dspr="docker system prune"
 alias kdp="kubectl describe pods | less"
+alias ffplay="ffplay -nodisp"
 
 function init-repo() {
   mkdir "$1"
