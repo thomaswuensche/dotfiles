@@ -14,7 +14,7 @@
     },
     "terminal.integrated.fontFamily": "Inconsolata for Powerline",
     "terminal.integrated.fontSize": 16,
-    "editor.occurrencesHighlight": false,
+    "editor.occurrencesHighlight": "off",
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.suggestOnTriggerCharacters": true,
     "editor.quickSuggestions": {
@@ -22,7 +22,7 @@
         "strings": "on"
     },
     "editor.snippetSuggestions": "top",
-    "editor.wordBasedSuggestions": true,
+    "editor.wordBasedSuggestions": "matchingDocuments",
     "editor.suggest.showWords": true,
     "editor.suggest.localityBonus": true,
     "editor.formatOnPaste": false,

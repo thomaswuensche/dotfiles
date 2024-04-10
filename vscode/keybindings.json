@@ -161,7 +161,7 @@
     },
     {
         "key": "shift+cmd+m",
-        "command": "sfdx.force.source.deploy.current.source.file"
+        "command": "sfdx.deploy.current.source.file"
     },
     {
         "key": "ctrl+cmd+f",
