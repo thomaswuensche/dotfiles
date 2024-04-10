@@ -15,7 +15,7 @@ GIT_HEROKU_K_CLR="020"
 GIT_STASH_K_CLR="184"
 GIT_STASH_F_CLR="000"
 VENV_K_CLR="196"
-SFDX_K_CLR="054"
+SF_K_CLR="054"
 
 
 PROMPT='
@@ -60,9 +60,10 @@ function prompt_extra_info() {
     HAS_EXTRA_INFO=true
   fi
 
-  if in_sfdx_repo; then
-    insert_sep $SFDX_K_CLR
-    sfdx_username
+  sf_prompt=$(sf_target_org)
+  if [[ -n $sf_prompt && $sf_prompt != "null" ]]; then
+    insert_sep $SF_K_CLR
+    echo -n " ${sf_prompt} "
     HAS_EXTRA_INFO=true
   fi
 
@@ -174,9 +175,10 @@ function git_dirty_status() {
   fi
 }
 
-function sfdx_username() {
-  defaultusername="$(cat $(sfdx_config_path) | jq -r .defaultusername)"
-  echo -n " ${defaultusername} "
+function sf_target_org() {
+  if in_sf_repo; then
+    echo -n "$(cat $(sf_config_path) | jq -r '."target-org"')"
+  fi
 }
 
 function in_git_repo() {
@@ -195,19 +197,19 @@ function in_virtualenv() {
   fi
 }
 
-function in_sfdx_repo() {
-  if [[ -f "$(sfdx_config_path)" ]]; then
+function in_sf_repo() {
+  if [[ -f "$(sf_config_path)" ]]; then
     return 0
   else
     return 1
   fi
 }
 
-function sfdx_config_path() {
+function sf_config_path() {
   local root_path=$(git rev-parse --show-toplevel 2> /dev/null)
   if [[ -n $root_path ]]; then
-    echo "${root_path}/.sfdx/sfdx-config.json"
+    echo "${root_path}/.sf/config.json"
   else
-    echo ".sfdx/sfdx-config.json"
+    echo ".sf/config.json"
   fi
 }
